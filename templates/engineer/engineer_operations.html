@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanolab Dual Beam</title>
+    <link rel="stylesheet" href="static/engineer/engineer_style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">
+                <div id="logo">
+                    <h1 id="initials">FS</h1>
+                    <h1 id="title">Material<br>Analysis</h1>
+                </div>
+            </a>
+
+            <!-- Queue Tab -->
+            <a href="/engineer_portal">
+                <h2>Operations</h2>
+            </a>
+            <a href="/engineer_training">
+                <h2>Training</h2>
+            </a>
+            <a href="/engineer_productivity">
+                <h2>Productivity</h2>
+            </a>
+            <a href="/engineer_resources">
+                <h2>Resources</h2>
+            </a>
+
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <a id="dashboard-button">Dashboard</a>
+            <a id="queue-button">Queue</a>
+            <a href="#">Preparation Guides</a>
+            <a href="#">Materials Inventory</a>
+            <a href="#">Tool Specs</a>
+            <a href="/order_submission">Support</a>
+        </div>
+
+        <div class="main-content">
+
+            <section class="section" id="dashboard">
+                <div class="card" id="productivity">
+                    <h3>Productivity Overview</h3>
+                    <div class="productivity-container">
+                        <div class="productivity-item">Monthly Total: 180</div>
+                        <div class="productivity-item">Daily Average: 10</div>
+                        <div class="productivity-item">Today's Total: 8</div>
+                        <div class="productivity-item">Redo Rate: 5%</div>
+                    </div>
+
+                </div>
+
+                <div class="card" id="myqueue">
+                    <h3>My Queue</h3>
+
+                    <table id="my-orders">
+                        <thead id="headers">
+                            <th>Remove</th>
+                            <th>Id</th>
+                            <th>Company</th>
+                            <th>Customer</th>
+                            <th>Wafer Id</th>
+                            <th>Chip Id</th>
+                            <th>Lamella Id</th>
+                            <th>Cut Direction</th>
+                            <th>Substrate</th>
+                            <th>Feature Type</th>
+                            <th>Due Date</th>
+                            <th>Assigned</th>
+                            <th>Insturctions</th>
+                            <th>Images</th>
+                            <th>Status</th>
+
+                        </thead>
+                        <tbody id="my-orders-data">
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div class="card" id="">
+                    <h3>Training Progress</h3>
+                    <div id="training-container">
+                        <div class="training-container-item" id="top">
+                            <div class="progress-bar">34%</div>
+
+                        </div>
+                        <div class="training-container-item" id="mid">
+                            <h3>Career Path: Analyst II</h3>
+                        </div>
+                        <div class="training-container-item" id="btm">
+                            <div class="btm-item">View Path</div>
+                            <div class="btm-item">Resume</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="queue">
+                <div class="card" id="full-queue">
+                    <h3>Queue</h3>
+
+                    <table id="orders">
+                        <thead id="headers">
+                            <th>Add</th>
+                            <th>Id</th>
+                            <th>Company</th>
+                            <th>Customer</th>
+                            <th>Wafer Id</th>
+                            <th>Chip Id</th>
+                            <th>Lamella Id</th>
+                            <th>Cut Direction</th>
+                            <th>Substrate</th>
+                            <th>Feature Type</th>
+                            <th>Service Type</th>
+                            <th>Assigned</th>
+                            <th>Insturctions</th>
+                            <th>Images</th>
+                            <th>Status</th>
+                        </thead>
+                        <tbody id="orders-data">
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+    <script src="{{ url_for('static', filename='engineer/engineerOperationsScript.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Company Account</title>
+    <link rel="stylesheet" type="text/css" href="/static/base_style.css">
+    <link rel="stylesheet" type="text/css" href="/static/customer/customer_style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">
+                <div id="logo">
+                    <h1 id="initials">FS</h1>
+                    <h1 id="title">Material<br>Analysis</h1>
+                </div>
+            </a>
+
+            <!-- Queue Tab -->
+            <div class="dropdown">
+                <h2>Dashboard</h2>
+            </div>
+            <div class="dropdown">
+                <h2>Shipments</h2>
+            </div>
+
+            <h2>Inventory</h2>
+
+            <h2>Couriers</h2>
+
+            <div class="dropdown">
+                <h2>Support</h2>
+                <div class="dropdown-content">
+                    <a href="#manuals" onclick="toggleMenu('acronyms')">Acronyms</a>
+                    <a href="#tutorials" onclick="toggleMenu('vocabulary')">FEOL Vocabulary</a>
+                    <a href="#guides" onclick="toggleMenu('guides')">Guides</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <a id="dashboard-button">Dashboard</a>
+            <a id="queue-button">New Order Submission</a>
+            <a href="#">Preparation Guides</a>
+            <a href="#">Materials Inventory</a>
+            <a href="#">Tool Specs</a>
+            <a href="/order_submission">Support</a>
+        </div>
+
+        <div class="main-content">
+
+
+            <section class="section" id="forms">
+                <div class="card" id="forms-card">
+
+
+                    <form id="add-company-form">
+                        <h1 class="section-title">New Company Account</h1>
+                        <div class="form-section">
+                            <div class="company-details">
+
+                                <label for="name">Company Name:</label><br>
+                                <input type="text" id="name" name="name"><br>
+                                <label for="email">Email:</label><br>
+                                <input type="email" id="email" name="email"><br>
+                                <label for="phone">Phone:</label><br>
+                                <input type="text" id="phone" name="phone"><br>
+                                <label for="status">Status:</label><br>
+                                <select id="status" name="status">
+                                    <option value=1>Active</option>
+                                    <option value=2>Inactive</option>
+                                </select><br>
+                            </div>
+                            <div class="company-address">
+
+                                <label for="street">Street:</label><br>
+                                <input type="text" id="street" name="street"><br>
+                                <label for="city">City:</label><br>
+                                <input type="text" id="city" name="city"><br>
+                                <label for="state">State:</label><br>
+                                <input type="text" id="state" name="state"><br>
+                                <label for="zip">Zip Code:</label><br>
+                                <input type="text" id="zip" name="zip"><br>
+                            </div>
+                        </div>
+                        <input type="submit" id="submit">
+                    </form>
+
+                    <form id="edit-company-form">
+                        <h3 class="section-title">Edit Company Account</h3>
+                        <label for="edit-name">Company Name:</label><br>
+                        <input type="text" id="edit-name" name="name"><br>
+                        <label for="edit-email">Email:</label><br>
+                        <input type="email" id="edit-email" name="email"><br>
+                        <label for="edit-phone">Phone:</label><br>
+                        <input type="text" id="edit-phone" name="phone"><br>
+                        <label for="edit-status">Status:</label><br>
+                        <select id="edit-status" name="status">
+                            <option value=1>Active</option>
+                            <option value=2>Inactive</option>
+                        </select><br>
+
+                        <h3 class="section-title">Company Address</h3>
+                        <label for="edit-street">Street:</label><br>
+                        <input type="text" id="edit-street" name="street"><br>
+                        <label for="edit-city">City:</label><br>
+                        <input type="text" id="edit-city" name="city"><br>
+                        <label for="edit-state">State:</label><br>
+                        <input type="text" id="edit-state" name="state"><br>
+                        <label for="edit-zip">Zip Code:</label><br>
+                        <input type="text" id="edit-zip" name="zip"><br>
+                        <input type="submit" id="submit">
+                    </form>
+                    <form id="delete-company-form">
+                        <h3 class="section-title">Delete Company Account</h3>
+                        <label for="delete-name">Company Name:</label><br>
+                        <select id="delete-name" name="name">
+                            <!-- Options will be populated dynamically -->
+                        </select><br>
+                        <input type="submit" id="submit">
+                    </form>
+
+                </div>
+
+
+                <div class="card" id="company_accounts">
+                    <h1 class="section-title">Company Accounts</h1>
+                    <div class="crud-buttons">
+                        <button type="button" id="add-button" onclick="toggleElement('add-company-form')">Add</button>
+                        <button type="button" id="edit-button"
+                            onclick="toggleElement('edit-company-form')">Edit</button>
+                        <button type="button" id="delete-button"
+                            onclick="toggleElement('delete-company-form')">Delete</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company Name</th>
+                                <th>Status</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="company_accounts_table">
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <script>
+
+        // Hide elements
+        const hideElement = (elements) => {
+            elements.forEach(element => {
+                document.getElementById(element).style.display = 'none';
+            });
+        }
+        const toggleElement = (element) => {
+            const el = document.getElementById(element)
+            if (el.style.display === 'none') {
+                el.style.display = 'block'
+            } else {
+                el.style.display = 'none';
+            }
+        }
+
+        hideElement(['edit-company-form', 'delete-company-form']);
+
+
+
+        // <----------- Load company accounts data ------------>
+        const loadCompanyAccounts = () => {
+            fetch('/company_accounts')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                    const tableBody = document.getElementById("company_accounts_table");
+                    tableBody.innerHTML = '';
+                    const deleteSelect = document.getElementById("delete-name");
+
+                    // delete dropdown
+                    deleteSelect.innerHTML = '';
+                    const placeholder = document.createElement('option');
+                    placeholder.value = '';
+                    placeholder.textContent = '-- Select company to delete --';
+                    deleteSelect.appendChild(placeholder);
+
+                    data.forEach(company => {
+                        // Fill table
+                        const row = document.createElement('tr');
+                        const address = `${company.addresses[0].street}, ${company.addresses[0].city}, ${company.addresses[0].state}, ${company.addresses[0].zip}`;
+                        row.innerHTML = `
+                            <td>${company.name}</td>
+                            <td>${company.status}</td>
+                            <td>${company.email}</td>
+                            <td>${company.phone}</td>
+                            <td>${address}</td>
+                            `;
+                        tableBody.appendChild(row);
+
+                        // Fill edit form on row click
+                        row.addEventListener("click", () => {
+                            console.log("row clicked:", company);
+                            document.getElementById('edit-name').value = company.name;
+                            document.getElementById('edit-status').value = company.status_id;
+                            document.getElementById('edit-email').value = company.email;
+                            document.getElementById('edit-phone').value = company.phone;
+                            document.getElementById('edit-street').value = company.addresses[0].street;
+                            document.getElementById('edit-city').value = company.addresses[0].city;
+                            document.getElementById('edit-state').value = company.addresses[0].state;
+                            document.getElementById('edit-zip').value = company.addresses[0].zip;
+                        });
+
+                        // Fill delete dropdown
+                        const option = document.createElement("option");
+                        option.value = company.name;
+                        option.textContent = company.name;
+                        deleteSelect.appendChild(option);
+                    });
+                });
+        };
+        loadCompanyAccounts();
+
+        // <------------- Add Company Form submission handler --------------->
+        document.getElementById("add-company-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            // Handle form submission
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            console.log(data);
+            fetch('/new_company_account', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(response => {
+                if (response.ok) {
+                    console.log("Company account added successfully");
+                    loadCompanyAccounts();
+                    event.target.reset();
+                } else {
+                    console.error("Error adding company account");
+                }
+            });
+        });
+
+        // Edit Company Form submission handler
+        document.getElementById("edit-company-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Handle form submission
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            console.log(data);
+            fetch('/update_company_account', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(response => {
+                if (response.ok) {
+                    console.log("Company account edited successfully");
+                    loadCompanyAccounts();
+                    event.target.reset();
+                } else {
+                    console.error("Error editing company account");
+                }
+            })
+        });
+
+        // Delete Company Account
+        document.getElementById('delete-company-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const data = Object.fromEntries(new FormData(event.target));
+            console.log(data);
+            fetch('/delete_company_account', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(response => {
+                if (response.ok) {
+                    console.log("Company account deleted successfully");
+                    loadCompanyAccounts();
+                    event.target.reset();
+                } else {
+                    console.error("Error deleting company account");
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

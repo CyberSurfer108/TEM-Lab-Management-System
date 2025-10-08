@@ -1,0 +1,250 @@
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1E1E2F;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.5);
+    font-size: small;
+
+}
+
+th,
+td {
+    color: #FFFFFF;
+    border: 1px solid #333333;
+    padding: 10px;
+    text-align: center;
+
+}
+
+th {
+    background-color: rgb(0, 0, 0.5);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    background-color: rgb(0, 0, 0.5);
+}
+
+tr:hover td {
+    background-color: #1E90FF;
+    color: #00FFCC;
+    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+#submit {
+    background-color: #1E90FF;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+}
+
+#submit:hover {
+    background-color: #00BFFF;
+}
+
+
+.section-title {
+    margin-bottom: 15px;
+}
+
+.form-section {
+    display: flex;
+    gap: 20px;
+
+
+}
+
+#add-form {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+#add-form.open {
+    max-height: 600px;
+    /* bigger than your form’s height */
+    opacity: 1;
+}
+
+#add-form input,
+#add-form select {
+    background-color: #1E1E2F;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    color: #e8ecf1;
+    padding: 10px;
+}
+
+#add-form #submit {
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#add-form #submit:hover {
+    background-color: #00BFFF;
+}
+
+#crud-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#add-button {
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    /* space between buttons */
+    justify-content: center;
+    /* center within the cell */
+    background: none;
+}
+
+.edit-button,
+.delete-button {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.edit-button {
+    color: #1E90FF
+}
+
+.edit-button:hover {
+    background-color: #cbd9e4;
+    color: #1E90FF
+        /* darker blue on hover */
+}
+
+.delete-button {
+    color: #dc3545;
+
+}
+
+.delete-button:hover {
+    background-color: #b02a37;
+    color: #fff;
+    /* darker red on hover */
+}
+
+.collapsible {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .4s ease, opacity .4s ease;
+    background-color: #151922;
+}
+
+.collapsible.open {
+    max-height: 600px;
+    /* > content height */
+    opacity: 1;
+}
+
+tr.edit-row>td {
+    background-color: #151922;
+    padding: 0px;
+}
+
+.edit-form {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #151922;
+
+}
+
+.edit-form.open {
+    max-height: 600px;
+    /* bigger than your form’s height */
+    opacity: 1;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #151922;
+}
+
+.field label {
+    color: #9aa3af;
+    font-size: medium;
+    background-color: #151922;
+}
+
+.edit-form input,
+.edit-form select {
+    color: #e8ecf1;
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.edit-form-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background-color: #151922;
+}
+
+.edit-form-address {
+    display: flex;
+    gap: 20px;
+    background-color: #151922;
+}
+
+.edit-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(0, 0, 0.5);
+    border: 1px solid #2a3243;
+
+
+}
+
+.edit-submit-button {
+    margin: 5px;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.edit-cancel-button {
+    margin: 5px;
+    background: transparent;
+    border: 1px solid #2a3243;
+    color: #e8ecf1;
+    width: fit-content;
+    height: 36px;
+    border-radius: 6px;
+}
