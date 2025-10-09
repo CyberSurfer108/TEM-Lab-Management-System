@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Contact Accounts</title>
+    <title>New Order Submissions</title>
 
 
     <link rel="stylesheet" type="text/css" href="/static/customer/dashboard_style.css">
@@ -19,9 +19,6 @@
                     <h1 id="title">Material<br>Analysis</h1>
                 </div>
             </a>
-
-
-
         </nav>
     </header>
     <main>
@@ -34,9 +31,7 @@
         </div>
 
         <div class="main-content">
-
-
-            <section class="section" id="forms">
+            <section id="forms">
 
                 <form id="waferForm">
                     <div class="form-section" id="constants">
@@ -68,48 +63,80 @@
                             </select>
                         </div>
                     </div>
-                    <button type="button" class="wafer-button" onclick="addWafer()">
+                    <button type="button" class="wafer-btn" onclick="addWafer()">
                         Add Wafer
                     </button>
                     <div class="form-section" id="wafer-container">
+                        <div class="wafer-section">
+                            <div class="label-container">
+                                <label>Wafer ID</label>
+
+                            </div>
+                            <input type="text" name="wafer-id" placeholder="Enter wafer Id" required />
+                            <button type="button" class="chip-btn" onclick="addChip(this)">
+                                Add Chip
+                            </button>
+                            <div class="chip-container">
+                                <div class="chip-section">
+                                    <div class="label-container">
+                                        <label>Chip ID</label>
+                                    </div>
+                                    <input type="text" name="chip-id" placeholder="Enter Chip Id" required />
+                                    <button type="button" class="lamella-button" onclick="addLamella(this)">
+                                        Add Lamella
+                                    </button>
+                                    <div class="lamella-container">
+                                        <div class="lamella-section">
+                                            <div class="label-container">
+                                                <label>Lamella ID</label>
+                                            </div>
+                                            <input class="lamella-input" type="text" name="lamella-id"
+                                                placeholder="Enter lamella Id" required />
+                                            <div class="site-container">
+                                                <div class="label-container">
+                                                    <label>Total Sites</label>
+                                                </div>
+                                                <input type="number" value="1" min="1" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-
                     <button type="submit" id="submit-button">Submit</button>
                 </form>
-
-
             </section>
-
-            <section>
+            <section id="templates">
                 <!-- Wafer -->
                 <template id="tpl-wafer">
 
                     <div class="wafer-section">
                         <div class="label-container">
                             <label>Wafer ID</label>
-                            <button class="delete-button">❌</button>
+                            <button class="delete-btn">❌</button>
                         </div>
                         <input type="text" name="wafer-id" placeholder="Enter wafer Id" required />
-                        <button type="button" class="field-button" onclick="addChip(this)">
+                        <button type="button" class="chip-btn" onclick="addChip(this)">
                             Add Chip
                         </button>
-                        <div class="field-container">
-                            <div class="field-section">
+                        <div class="chip-container">
+                            <div class="chip-section">
                                 <div class="label-container">
                                     <label>Chip ID</label>
                                 </div>
-                                <input type="text" name="field-id" placeholder="Enter field Id" required />
-                                <button type="button" class="subfield-button" onclick="addLamella(this)">
+                                <input type="text" name="chip-id" placeholder="Enter Chip Id" required />
+                                <button type="button" class="lamella-button" onclick="addLamella(this)">
                                     Add Lamella
                                 </button>
-                                <div class="subfield-container">
-                                    <div class="subfield-section">
+                                <div class="lamella-container">
+                                    <div class="lamella-section">
                                         <div class="label-container">
                                             <label>Lamella ID</label>
                                         </div>
-                                        <input class="sufield-input" type="text" name="subfield-id"
-                                            placeholder="Enter subfield Id" required />
+                                        <input class="lamella-input" type="text" name="lamella-id"
+                                            placeholder="Enter lamella Id" required />
                                         <div class="site-container">
                                             <div class="label-container">
                                                 <label>Total Sites</label>
@@ -122,25 +149,28 @@
                         </div>
                     </div>
 
+
                 </template>
 
                 <!-- Chip -->
                 <template id="tpl-chip">
-                    <div class="field-section">
+                    <div class="chip-section">
                         <div class="label-container">
                             <label>Chip ID</label>
+                            <button class="delete-btn">❌</button>
                         </div>
-                        <input type="text" name="field-id" placeholder="Enter field Id" required />
-                        <button type="button" class="subfield-button" onclick="addLamella(this)">
+                        <input type="text" name="chip-id" placeholder="Enter Chip Id" required />
+                        <button type="button" class="lamella-button" onclick="addLamella(this)">
                             Add Lamella
                         </button>
-                        <div class="subfield-container">
-                            <div class="subfield-section">
+
+                        <div class="lamella-container">
+                            <div class="lamella-section">
                                 <div class="label-container">
                                     <label>Lamella ID</label>
                                 </div>
-                                <input class="sufield-input" type="text" name="subfield-id"
-                                    placeholder="Enter subfield Id" required />
+                                <input class="lamella-input" type="text" name="lamella-id"
+                                    placeholder="Enter lamella Id" required />
                                 <div class="site-container">
                                     <div class="label-container">
                                         <label>Total Sites</label>
@@ -154,11 +184,12 @@
 
                 <!-- Lamella -->
                 <template id="tpl-lamella">
-                    <div class="subfield-section">
+                    <div class="lamella-section">
                         <div class="label-container">
                             <label>Lamella ID</label>
+                            <button class="delete-btn">❌</button>
                         </div>
-                        <input class="sufield-input" type="text" name="subfield-id" placeholder="Enter Lamella Id"
+                        <input class="lamella-input" type="text" name="lamella-id" placeholder="Enter lamella Id"
                             required />
                         <div class="site-container">
                             <div class="label-container">
@@ -176,7 +207,11 @@
         <p>&copy; 2023 Company Name. All rights reserved.</p>
     </footer>
     <script>
-        addWafer();
+        function eventListeners() {
+            const addWaferBtn = document.querySelectorAll('.wafer-btn')
+            document.addEventListener()
+        }
+
         function addWafer() {
             const container = document.getElementById('wafer-container')
             const temp = document.getElementById('tpl-wafer')
@@ -186,15 +221,15 @@
         }
         function addChip(btn) {
             const wafer = btn.closest('.wafer-section')
-            const container = document.querySelector('.field-container')
+            const container = wafer.querySelector('.chip-container')
             const temp = document.getElementById('tpl-chip')
             const clone = temp.content.cloneNode(true);
 
             container.appendChild(clone);
         }
         function addLamella(btn) {
-            const chip = btn.closest('.field-section')
-            const container = document.querySelector('.subfield-container')
+            const chip = btn.closest('.chip-section')
+            const container = chip.querySelector('.lamella-container')
             const temp = document.getElementById('tpl-lamella')
             const clone = temp.content.cloneNode(true);
 
