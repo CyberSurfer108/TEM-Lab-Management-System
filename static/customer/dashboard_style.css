@@ -105,7 +105,6 @@ nav h2:hover {
 button {
     background-color: #282c34;
     color: #f0f0f0;
-    width: 100px;
     font-family: 'Helvetica', sans-serif;
     padding: 8px 15px;
     border: 2px solid #61dafb;
@@ -153,7 +152,8 @@ main {
 .sidebar {
     border-right: 2px solid white;
     background-color: rgb(0, 0, 0.5);
-    width: 250px;
+    width: auto;
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     padding-top: 30px;
@@ -222,10 +222,6 @@ select {
     width: 150px;
 }
 
-.sidebar {
-    min-width: 150px;
-    border-right: 1px solid #333;
-}
 
 .main-content {
     padding: 20px;
@@ -253,7 +249,7 @@ label {
     font-weight: 600;
     font-size: small;
     margin-bottom: 5px;
-    color: #444;
+    color: white;
 }
 
 input[type="text"] {
@@ -281,7 +277,7 @@ button {
     cursor: pointer;
     display: inline-block;
     transition: background-color 0.2s;
-    height: fit-content;
+
 }
 
 button:hover {
@@ -289,7 +285,7 @@ button:hover {
 }
 
 #submit-button {
-    height: 25px;
+
     margin: 10px 5px 0 0;
 }
 
@@ -301,13 +297,13 @@ button:hover {
     margin-top: 20px;
     margin-left: 10px;
     font-size: 12px;
-    width: 80px;
+    width: fit-content;
 }
 
 #constants {
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 5px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 255, 255, 0.5);
 }
 
 #wafer-container {
@@ -320,12 +316,12 @@ button:hover {
 
 .wafer-section {
     width: auto;
-    border: #333 1px solid;
+    border: white 1px solid;
     display: flex;
     flex-direction: column;
     padding: 5px;
     padding-right: 15px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 255, 255, 0.5);
 }
 
 .label-container {
@@ -350,11 +346,11 @@ button:hover {
 
 .field-section {
     width: auto;
-    border: #333 1px solid;
+    border: white 1px solid;
     display: flex;
     flex-direction: column;
     padding: 5px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .subfield-container {
@@ -368,10 +364,10 @@ button:hover {
 .subfield-section {
     width: auto;
     padding-left: 5px;
-    border: #333 1px solid;
+    border: white 1px solid;
     display: flex;
     flex-direction: column;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .site-container {
