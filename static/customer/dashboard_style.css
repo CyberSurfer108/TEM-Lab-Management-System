@@ -231,7 +231,7 @@ select {
 h1,
 h2 {
     color: #1a73e8;
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
 }
 
@@ -332,8 +332,14 @@ button:hover {
 }
 
 .delete-btn {
+    padding: 2px;
     background: none;
     font-size: 8px;
+
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
 }
 
 .chip-container {
@@ -363,10 +369,12 @@ button:hover {
 
 .lamella-section {
     width: auto;
+    padding: 5px;
     padding-left: 5px;
     border: white 1px solid;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
 }
 
@@ -382,6 +390,28 @@ button:hover {
     margin-left: 10px;
     font-size: 12px;
     width: 100px;
+}
+
+fieldset {
+    padding: 5px;
+}
+
+
+
+.analysis-checkbox {
+    display: grid;
+    grid-template-columns: 50px 50px;
+
+}
+
+.checkbox-input label {
+    font-weight: 100;
+    font-size: 50%;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 90%;
 }
 
 #orderTable {

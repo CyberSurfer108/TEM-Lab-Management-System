@@ -32,7 +32,7 @@
 
         <div class="main-content">
             <section id="forms">
-
+                <h2>Create a New Order</h2>
                 <form id="waferForm">
                     <div class="form-section" id="constants">
                         <div class="form-group">
@@ -91,19 +91,52 @@
                                                 <label>Lamella ID</label>
                                             </div>
                                             <input class="lamella-input" type="text" name="lamella-id"
-                                                placeholder="Enter lamella Id" required />
-                                            <div class="site-container">
-                                                <div class="label-container">
-                                                    <label>Total Sites</label>
-                                                </div>
-                                                <input type="number" value="1" min="1" required />
+                                                placeholder="Enter lamella name" required />
+                                            <div class="instruction-file">
+                                                <input id="files" type="file" multiple />
+                                            </div>
+                                            <div class="analysis-section">
+                                                <fieldset>
+                                                    <legend>
+                                                        Analysis
+                                                    </legend>
+                                                    <div class="analysis-checkbox">
+
+                                                        <div class="checkbox-input">
+                                                            <label for="fib-sem">FIB-SEM</label>
+                                                            <input type="checkbox" name="fib-sem" id="fib-sem">
+                                                        </div>
+                                                        <div class="checkbox-input">
+                                                            <label for="30kv-stem">30Kv STEM</label>
+                                                            <input type="checkbox" name="30kv-stem" id="30kv-stem">
+                                                        </div>
+
+                                                        <div class="checkbox-input">
+                                                            <label for="tem">TEM</label>
+                                                            <input type="checkbox" name="tem" id="tem">
+
+                                                        </div>
+                                                        <div class="checkbox-input">
+                                                            <label for="eds">EDS</label>
+                                                            <input type="checkbox" name="eds" id="eds">
+                                                        </div>
+
+                                                        <div class="checkbox-input">
+                                                            <label for="eels">EELS</label>
+                                                            <input type="checkbox" name="eels" id="eels">
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="lamella-description">
+                                                <label>Notes</label>
+                                                <textarea></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <button type="submit" id="submit-button">Submit</button>
                 </form>
@@ -136,12 +169,47 @@
                                             <label>Lamella ID</label>
                                         </div>
                                         <input class="lamella-input" type="text" name="lamella-id"
-                                            placeholder="Enter lamella Id" required />
-                                        <div class="site-container">
-                                            <div class="label-container">
-                                                <label>Total Sites</label>
-                                            </div>
-                                            <input type="number" value="1" min="1" required />
+                                            placeholder="Enter lamella name" required />
+                                        <div class="instruction-file">
+                                            <label>Instructions</label>
+                                            <input id="files" type="file" />
+                                        </div>
+                                        <div class="analysis-section">
+                                            <fieldset>
+                                                <legend>
+                                                    Analysis
+                                                </legend>
+                                                <div class="analysis-checkbox">
+
+                                                    <div class="checkbox-input">
+                                                        <label for="fib-sem">FIB-SEM</label>
+                                                        <input type="checkbox" name="fib-sem" id="fib-sem">
+                                                    </div>
+                                                    <div class="checkbox-input">
+                                                        <label for="30kv-stem">30Kv STEM</label>
+                                                        <input type="checkbox" name="30kv-stem" id="30kv-stem">
+                                                    </div>
+
+                                                    <div class="checkbox-input">
+                                                        <label for="tem">TEM</label>
+                                                        <input type="checkbox" name="tem" id="tem">
+
+                                                    </div>
+                                                    <div class="checkbox-input">
+                                                        <label for="eds">EDS</label>
+                                                        <input type="checkbox" name="eds" id="eds">
+                                                    </div>
+
+                                                    <div class="checkbox-input">
+                                                        <label for="eels">EELS</label>
+                                                        <input type="checkbox" name="eels" id="eels">
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="lamella-description">
+                                            <label>Notes</label>
+                                            <textarea></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -170,12 +238,46 @@
                                     <label>Lamella ID</label>
                                 </div>
                                 <input class="lamella-input" type="text" name="lamella-id"
-                                    placeholder="Enter lamella Id" required />
-                                <div class="site-container">
-                                    <div class="label-container">
-                                        <label>Total Sites</label>
-                                    </div>
-                                    <input type="number" value="1" min="1" required />
+                                    placeholder="Enter lamella name" required />
+                                <div class="instruction-file">
+                                    <input id="files" type="file" multiple />
+                                </div>
+                                <div class="analysis-section">
+                                    <fieldset>
+                                        <legend>
+                                            Analysis
+                                        </legend>
+                                        <div class="analysis-checkbox">
+
+                                            <div class="checkbox-input">
+                                                <label for="fib-sem">FIB-SEM</label>
+                                                <input type="checkbox" name="fib-sem" id="fib-sem">
+                                            </div>
+                                            <div class="checkbox-input">
+                                                <label for="30kv-stem">30Kv STEM</label>
+                                                <input type="checkbox" name="30kv-stem" id="30kv-stem">
+                                            </div>
+
+                                            <div class="checkbox-input">
+                                                <label for="tem">TEM</label>
+                                                <input type="checkbox" name="tem" id="tem">
+
+                                            </div>
+                                            <div class="checkbox-input">
+                                                <label for="eds">EDS</label>
+                                                <input type="checkbox" name="eds" id="eds">
+                                            </div>
+
+                                            <div class="checkbox-input">
+                                                <label for="eels">EELS</label>
+                                                <input type="checkbox" name="eels" id="eels">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="lamella-description">
+                                    <label>Notes</label>
+                                    <textarea></textarea>
                                 </div>
                             </div>
                         </div>
@@ -189,13 +291,47 @@
                             <label>Lamella ID</label>
                             <button class="delete-btn">❌</button>
                         </div>
-                        <input class="lamella-input" type="text" name="lamella-id" placeholder="Enter lamella Id"
+                        <input class="lamella-input" type="text" name="lamella-id" placeholder="Enter lamella name"
                             required />
-                        <div class="site-container">
-                            <div class="label-container">
-                                <label>Total Sites</label>
-                            </div>
-                            <input type="number" value="1" min="1" required />
+                        <div class="instruction-file">
+                            <input id="files" type="file" multiple />
+                        </div>
+                        <div class="analysis-section">
+                            <fieldset>
+                                <legend>
+                                    Analysis
+                                </legend>
+                                <div class="analysis-checkbox">
+
+                                    <div class="checkbox-input">
+                                        <label for="fib-sem">FIB-SEM</label>
+                                        <input type="checkbox" name="fib-sem" id="fib-sem">
+                                    </div>
+                                    <div class="checkbox-input">
+                                        <label for="30kv-stem">30Kv STEM</label>
+                                        <input type="checkbox" name="30kv-stem" id="30kv-stem">
+                                    </div>
+
+                                    <div class="checkbox-input">
+                                        <label for="tem">TEM</label>
+                                        <input type="checkbox" name="tem" id="tem">
+
+                                    </div>
+                                    <div class="checkbox-input">
+                                        <label for="eds">EDS</label>
+                                        <input type="checkbox" name="eds" id="eds">
+                                    </div>
+
+                                    <div class="checkbox-input">
+                                        <label for="eels">EELS</label>
+                                        <input type="checkbox" name="eels" id="eels">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="lamella-description">
+                            <label>Notes</label>
+                            <textarea></textarea>
                         </div>
                     </div>
                 </template>
