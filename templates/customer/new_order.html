@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Order Submissions</title>
+
+
+    <link rel="stylesheet" type="text/css" href="/static/customer/new_order_style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">
+                <div class="logo" id="logo">
+                    <h1 id="initials">FS</h1>
+                    <h1 id="title">Material<br>Analysis</h1>
+                </div>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <a href="/customer/dashboard">Dashboard</a>
+            <a href="/customer/new_order">New Order</a>
+            <a id="company-contacts-button">Messages</a>
+            <a id="remove-company-button">Support</a>
+
+        </div>
+
+        <div class="main-content">
+            <section id="forms">
+                <h2>Create a New Order</h2>
+                <form id="waferForm">
+                    <div class="form-section" id="constants">
+                        <div class="form-group">
+                            <label name="referenceId">Reference ID</label>
+                            <input type="text" name="referenceId" id="referenceId" placeholder="Enter Reference ID"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label name="lotId">Lot ID</label>
+                            <input type="text" name="lotId" id="lotId" placeholder="Enter Lot ID" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label name="processStep">Process Step</label>
+                            <input type="text" name="processStep" id="processStep"
+                                placeholder="Enter latest process step" required />
+                        </div>
+                        <div class="form-group">
+                            <label name="tool">Analysis Type</label>
+                            <select name="tool" id="tool" required>
+                                <option></option>
+                                <option>SEM</option>
+                                <option>FIB</option>
+                                <option>EDS</option>
+                                <option>STEM</option>
+                                <option>EPISCOPE</option>
+                                <option>PROBER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="wafer-btn" onclick="addWafer()">
+                        Add Wafer
+                    </button>
+                    <div class="form-section" id="wafer-container">
+                        <div class="wafer-section">
+
+                            <div class="label-container">
+                                <label>Wafer ID</label>
+
+                            </div>
+                            <input type="text" name="wafer-id" placeholder="Enter wafer Id" required />
+                            <button type="button" class="chip-btn" onclick="addChip(this)">
+                                Add Chip
+                            </button>
+                            <div class="chip-container">
+                                <div class="chip-section">
+                                    <div class="label-container">
+                                        <label>Chip ID</label>
+                                    </div>
+                                    <input type="text" name="chip-id" placeholder="Enter Chip Id" required />
+                                    <button type="button" class="lamella-button" onclick="addLamella(this)">
+                                        Add Lamella
+                                    </button>
+                                    <div class="lamella-container">
+                                        <div class="lamella-section">
+                                            <div class="label-container">
+                                                <label>Lamella ID</label>
+                                            </div>
+                                            <input class="lamella-input" type="text" name="lamella-id"
+                                                placeholder="Enter lamella name" required />
+
+                                            <div class="instruction-file">
+                                                <label>Instructions</label>
+                                                <input id="files" type="file" multiple />
+                                            </div>
+                                            <div class="analysis-section">
+                                                <fieldset>
+                                                    <legend>
+                                                        Analysis
+                                                    </legend>
+                                                    <div class="analysis-checkbox">
+
+                                                        <div class="checkbox-input">
+                                                            <label for="fib-sem">
+                                                                <input type="checkbox" name="techniques[]"
+                                                                    value="fib-sem">FIB-SEM</label>
+
+                                                        </div>
+                                                        <div class="checkbox-input">
+                                                            <label for="30kv-stem">
+                                                                <input type="checkbox" name="techniques[]"
+                                                                    value="30kv-stem"> 30Kv STEM</label>
+                                                        </div>
+
+                                                        <div class="checkbox-input">
+                                                            <label for="tem">
+                                                                <input type="checkbox" name='techniques[]'
+                                                                    value="tem">TEM</label>
+
+                                                        </div>
+                                                        <div class="checkbox-input">
+                                                            <label for="eds">
+                                                                <input type="checkbox" name="techniques[]"
+                                                                    value="eds">EDS</label>
+                                                        </div>
+
+                                                        <div class="checkbox-input">
+                                                            <label for="eels">
+                                                                <input type="checkbox" name="techniques[]"
+                                                                    value="eels">EELS</label>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="lamella-description">
+                                                <label>Notes</label>
+                                                <textarea></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" id="submit-button">Submit</button>
+                </form>
+            </section>
+            <section id="templates">
+                <!-- Wafer -->
+                <template id="tpl-wafer">
+
+                    <div class="wafer-section">
+                        <div class="label-container">
+                            <label>Wafer ID</label>
+                            <button class="delete-btn">❌</button>
+                        </div>
+                        <input type="text" name="wafer-id" placeholder="Enter wafer Id" required />
+                        <button type="button" class="chip-btn" onclick="addChip(this)">
+                            Add Chip
+                        </button>
+                        <div class="chip-container">
+                            <div class="chip-section">
+                                <div class="label-container">
+                                    <label>Chip ID</label>
+                                </div>
+                                <input type="text" name="chip-id" placeholder="Enter Chip Id" required />
+                                <button type="button" class="lamella-button" onclick="addLamella(this)">
+                                    Add Lamella
+                                </button>
+                                <div class="lamella-container">
+                                    <div class="lamella-section">
+                                        <div class="label-container">
+                                            <label>Lamella ID</label>
+                                        </div>
+                                        <input class="lamella-input" type="text" name="lamella-id"
+                                            placeholder="Enter lamella name" required />
+                                        <div class="instruction-file">
+                                            <label>Instructions</label>
+                                            <input id="files" type="file" />
+                                        </div>
+                                        <div class="analysis-section">
+                                            <fieldset>
+                                                <legend>
+                                                    Analysis
+                                                </legend>
+                                                <div class="analysis-checkbox">
+
+                                                    <div class="checkbox-input">
+                                                        <label for="fib-sem">
+                                                            <input type="checkbox" name="techniques[]"
+                                                                value="fib-sem">FIB-SEM</label>
+
+                                                    </div>
+                                                    <div class="checkbox-input">
+                                                        <label for="30kv-stem">
+                                                            <input type="checkbox" name="techniques[]"
+                                                                value="30kv-stem"> 30Kv STEM</label>
+                                                    </div>
+
+                                                    <div class="checkbox-input">
+                                                        <label for="tem">
+                                                            <input type="checkbox" name='techniques[]'
+                                                                value="tem">TEM</label>
+
+                                                    </div>
+                                                    <div class="checkbox-input">
+                                                        <label for="eds">
+                                                            <input type="checkbox" name="techniques[]"
+                                                                value="eds">EDS</label>
+                                                    </div>
+
+                                                    <div class="checkbox-input">
+                                                        <label for="eels">
+                                                            <input type="checkbox" name="techniques[]"
+                                                                value="eels">EELS</label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="lamella-description">
+                                            <label>Notes</label>
+                                            <textarea></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </template>
+
+                <!-- Chip -->
+                <template id="tpl-chip">
+                    <div class="chip-section">
+                        <div class="label-container">
+                            <label>Chip ID</label>
+                            <button class="delete-btn">❌</button>
+                        </div>
+                        <input type="text" name="chip-id" placeholder="Enter Chip Id" required />
+                        <button type="button" class="lamella-button" onclick="addLamella(this)">
+                            Add Lamella
+                        </button>
+
+                        <div class="lamella-container">
+                            <div class="lamella-section">
+                                <div class="label-container">
+                                    <label>Lamella ID</label>
+                                </div>
+                                <input class="lamella-input" type="text" name="lamella-id"
+                                    placeholder="Enter lamella name" required />
+                                <div class="instruction-file">
+                                    <label>Instructions</label>
+                                    <input id="files" type="file" multiple />
+                                </div>
+                                <div class="analysis-section">
+                                    <fieldset>
+                                        <legend>
+                                            Analysis
+                                        </legend>
+                                        <div class="analysis-checkbox">
+
+                                            <div class="checkbox-input">
+                                                <label for="fib-sem">
+                                                    <input type="checkbox" name="techniques[]"
+                                                        value="fib-sem">FIB-SEM</label>
+
+                                            </div>
+                                            <div class="checkbox-input">
+                                                <label for="30kv-stem">
+                                                    <input type="checkbox" name="techniques[]" value="30kv-stem"> 30Kv
+                                                    STEM</label>
+                                            </div>
+
+                                            <div class="checkbox-input">
+                                                <label for="tem">
+                                                    <input type="checkbox" name='techniques[]' value="tem">TEM</label>
+
+                                            </div>
+                                            <div class="checkbox-input">
+                                                <label for="eds">
+                                                    <input type="checkbox" name="techniques[]" value="eds">EDS</label>
+                                            </div>
+
+                                            <div class="checkbox-input">
+                                                <label for="eels">
+                                                    <input type="checkbox" name="techniques[]" value="eels">EELS</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="lamella-description">
+                                    <label>Notes</label>
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Lamella -->
+                <template id="tpl-lamella">
+                    <div class="lamella-section">
+                        <div class="label-container">
+                            <label>Lamella ID</label>
+                            <button class="delete-btn">❌</button>
+                        </div>
+                        <input class="lamella-input" type="text" name="lamella-id" placeholder="Enter lamella name"
+                            required />
+                        <div class="instruction-file">
+                            <label>Instructions</label>
+                            <input id="files" type="file" multiple />
+                        </div>
+                        <div class="analysis-section">
+                            <fieldset>
+                                <legend>
+                                    Analysis
+                                </legend>
+                                <div class="analysis-checkbox">
+
+                                    <div class="checkbox-input">
+                                        <label><input type="checkbox" name="techniques[]"
+                                                value="fib-sem"><span>FIB-SEM</span></label>
+                                    </div>
+                                    <div class="checkbox-input">
+                                        <label>
+                                            <input type="checkbox" name="techniques[]" value="30kv-stem">30Kv
+                                            STEM
+                                        </label>
+                                    </div>
+
+                                    <div class="checkbox-input">
+                                        <label>
+                                            <input type="checkbox" name='techniques[]' value="tem">TEM</label>
+
+                                    </div>
+                                    <div class="checkbox-input">
+                                        <label>
+                                            <input type="checkbox" name="techniques[]" value="eds">EDS</label>
+                                    </div>
+
+                                    <div class="checkbox-input">
+                                        <label for="eels">
+                                            <input type="checkbox" name="techniques[]" value="eels">EELS</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="lamella-description">
+                            <label>Notes</label>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </template>
+            </section>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+    </footer>
+    <script>
+        function eventListeners() {
+            const addWaferBtn = document.querySelectorAll('.wafer-btn')
+            document.addEventListener()
+        }
+
+        function addWafer() {
+            const container = document.getElementById('wafer-container')
+            const temp = document.getElementById('tpl-wafer')
+            const clone = temp.content.cloneNode(true);
+
+            container.appendChild(clone);
+        }
+        function addChip(btn) {
+            const wafer = btn.closest('.wafer-section')
+            const container = wafer.querySelector('.chip-container')
+            const temp = document.getElementById('tpl-chip')
+            const clone = temp.content.cloneNode(true);
+
+            container.appendChild(clone);
+        }
+        function addLamella(btn) {
+            const chip = btn.closest('.chip-section')
+            const container = chip.querySelector('.lamella-container')
+            const temp = document.getElementById('tpl-lamella')
+            const clone = temp.content.cloneNode(true);
+
+            container.appendChild(clone);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

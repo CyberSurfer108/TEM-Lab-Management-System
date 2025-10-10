@@ -23,9 +23,9 @@ def admin_companies():
     return render_template("admin/companies.html")
 
 
-@app.route("/customer/dashboard")
+@app.route("/customer/new_order")
 def customer_portal():
-    return render_template("customer/customer_dashboard.html")
+    return render_template("customer/new_order.html")
 
 
 @app.route("/engineer_portal")
