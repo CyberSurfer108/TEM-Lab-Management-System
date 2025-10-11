@@ -24,8 +24,13 @@ def admin_companies():
 
 
 @app.route("/customer/new_order")
-def customer_portal():
+def customer_new_order():
     return render_template("customer/new_order.html")
+
+
+@app.route("/customer/dashboard")
+def customer_portal():
+    return render_template("customer/dashboard.html")
 
 
 @app.route("/engineer_portal")
