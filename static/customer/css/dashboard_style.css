@@ -115,6 +115,12 @@ h2 {
 /* =========================
    SECTION / CARDS
    ========================= */
+
+
+
+/* =========================
+   TABLES
+   ========================= */
 table {
     min-width: 640px;
     border-collapse: separate;
@@ -125,18 +131,49 @@ table {
 }
 
 .table-headers {
-    height: 30px;
+    min-height: 30px;
     background-color: hsl(var(--teal)/ 0.2);
 }
 
-tr {
-    height: 30px;
+
+
+td,
+th {
+    width: 25%;
+    text-align: center;
+}
+
+.order-row {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 
 }
 
-td {
-    border-top: var(--brd);
-    text-align: center;
+progress {
+    width: 50%;
+}
+
+.lamella-list {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.lamella-list.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.lamella-row {
+    background-color: hsl(var(--amber)/ 0.1);
+
+
 }
 
 #cards {
@@ -154,7 +191,7 @@ td {
     border-radius: var(--radius);
     text-align: center;
     padding: 10px;
-    background: hsl(var(--amber)/0.3);
+    background: hsl(var(--indigo)/0.3);
 
 }
 

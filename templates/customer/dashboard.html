@@ -71,36 +71,133 @@
                         </tr>
                     </thead>
                     <tbody id="active-order-tbody">
-                        <tr>
+                        <tr class="order-row" id="order-101">
                             <td>101</td>
+                            <td>Nanolab</td>
+                            <td>Status</td>
+                            <td>10-2-2025</td>
+                        </tr>
+                        <tr class="lamella-container">
+                            <td colspan="4">
+                                <div class="lamella-list">
+                                    <table>
+                                        <thead>
+                                            <th>Wafer</th>
+                                            <th>Chip</th>
+                                            <th>Lamella</th>
+                                            <th>Progress</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="lamella-row">
+                                                <td>10J3</td>
+                                                <td>A01</td>
+                                                <td>X-Cut</td>
+                                                <td>Complete</td>
+                                            </tr>
+                                        </tbody>
+
+                                        <tr class="lamella-row">
+                                            <td>10J3</td>
+                                            <td>A02</td>
+                                            <td>X-Cut</td>
+                                            <td><progress id="progress" value="60" max="100"></progress></td>
+                                        </tr>
+                                        <tr class="lamella-row">
+                                            <td>10J3</td>
+                                            <td>A02</td>
+                                            <td>Y-Cut</td>
+                                            <td><progress id="progress" value="40" max="100"></progress></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="order-row" id="order-102">
+                            <td>102</td>
                             <td>Nanolab</td>
                             <td>In-Progress</td>
                             <td>10-2-205</td>
                         </tr>
-                        <tr>
-                            <td>102</td>
-                            <td>AMAT</td>
-                            <td>Ready for pickup</td>
-                            <td>10-6-2025</td>
-                        </tr>
-                        <tr>
+                        <tr class="order-row" id="order-103">
                             <td>103</td>
-                            <td>AMAT</td>
-                            <td>Ready for pickup</td>
-                            <td>10-8-2025</td>
+                            <td>Nanolab</td>
+                            <td>In-Progress</td>
+                            <td>10-2-205</td>
                         </tr>
+
+
+
 
                     </tbody>
                 </table>
             </section>
+            <section id="images">
+                <h2>Order Images</h2>
+                <select id="select-order-button">
+                    <option>order: 101</option>
+                    <option>order: 101</option>
+                    <option>order: 101</option>
+                    <option>order: 104</option>
+                </select>
+                <div>
+                    <img>
+                </div>
+            </section>
             <section id="templates">
-                <template id="active-order-row">
-                    <tr>
+                <template id="active-order">
+                    <tr class="order-row">
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
+                </template>
+
+                <template id="lamella-list">
+                    <tr class="lamella-container">
+                        <td colspan="4">
+                            <div class="lamella-list">
+                                <table>
+                                    <thead>
+                                        <th colspan="4">Lamella List</th>
+                                    </thead>
+                                    <tbody id="lamella-table">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+
+                <template id="lamella-row">
+                    <tr class="lamella-row">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </template>
+                <template id="lamella-details">
+                    <tr>
+                        <td colspan="4">
+                            <div>
+                                <table>
+                                    <thead>
+                                        <th colspan="4"> Details</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+
                 </template>
             </section>
         </div>
@@ -111,6 +208,17 @@
     </footer>
     <script src="/static/customer/js/chart.umd.js"></script>
     <script>
+
+        const orderRow = document.getElementById("order-101");
+        const lamellaList = document.querySelector(".lamella-list")
+
+
+        orderRow.addEventListener("click", () => {
+            lamellaList.classList.toggle("open");
+
+        })
+
+
 
         function addRow() {
             const tbody = document.getElementById('active-order-tbody')

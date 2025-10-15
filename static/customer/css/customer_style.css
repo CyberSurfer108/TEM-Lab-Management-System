@@ -162,7 +162,7 @@ tr:hover td {
 
 .collapsible.open {
     max-height: 600px;
-    /* > content height */
+   
     opacity: 1;
 }
 
@@ -182,7 +182,7 @@ tr.edit-row>td {
 
 .edit-form.open {
     max-height: 600px;
-    /* bigger than your form’s height */
+    
     opacity: 1;
 }
 
