@@ -33,35 +33,18 @@
 
         <div class="main-content">
             <section id="forms">
-                
+
                 <form id="waferForm">
                     <div class="form-section" id="constants">
                         <div class="form-group">
-                            <label name="referenceId">Reference ID</label>
-                            <input type="text" name="referenceId" id="referenceId" placeholder="Enter Reference ID"
+                            <label name="customerId">Customer</label>
+                            <input type="text" name="customerId" id="customerId" placeholder="Enter Customer Name"
                                 required />
                         </div>
                         <div class="form-group">
-                            <label name="lotId">Lot ID</label>
-                            <input type="text" name="lotId" id="lotId" placeholder="Enter Lot ID" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label name="processStep">Process Step</label>
-                            <input type="text" name="processStep" id="processStep"
-                                placeholder="Enter latest process step" required />
-                        </div>
-                        <div class="form-group">
-                            <label name="tool">Analysis Type</label>
-                            <select name="tool" id="tool" required>
-                                <option></option>
-                                <option>SEM</option>
-                                <option>FIB</option>
-                                <option>EDS</option>
-                                <option>STEM</option>
-                                <option>EPISCOPE</option>
-                                <option>PROBER</option>
-                            </select>
+                            <label name="priorityId">Priority</label>
+                            <input type="text" name="priorityId" id="priorityId" placeholder="Enter Priority"
+                                required />
                         </div>
                     </div>
                     <button type="button" class="wafer-btn" onclick="addWafer()">
@@ -92,7 +75,7 @@
                                             <div class="label-container">
                                                 <label>Lamella ID</label>
                                             </div>
-                                            <input class="lamella-input" type="text" name="lamella-id"
+                                            <input class="lamella-input" type="text" name="lamella-name"
                                                 placeholder="Enter lamella name" required />
 
                                             <div class="instruction-file">
@@ -140,7 +123,7 @@
                                             </div>
                                             <div class="lamella-description">
                                                 <label>Notes</label>
-                                                <textarea></textarea>
+                                                <textarea class="notes"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -253,7 +236,7 @@
                                 <div class="label-container">
                                     <label>Lamella ID</label>
                                 </div>
-                                <input class="lamella-input" type="text" name="lamella-id"
+                                <input class="lamella-input" type="text" name="lamella-name"
                                     placeholder="Enter lamella name" required />
                                 <div class="instruction-file">
                                     <label>Instructions</label>
@@ -311,7 +294,7 @@
                             <label>Lamella ID</label>
                             <button class="delete-btn">❌</button>
                         </div>
-                        <input class="lamella-input" type="text" name="lamella-id" placeholder="Enter lamella name"
+                        <input class="lamella-input" type="text" name="lamella-name" placeholder="Enter lamella name"
                             required />
                         <div class="instruction-file">
                             <label>Instructions</label>
@@ -396,6 +379,51 @@
         }
 
 
+    </script>
+    <script>
+        /* =========================================================
+        🧾 FORM SUBMISSION HANDLER
+        Collects nested wafer → chip → lamella data
+        Builds JSON object for backend API
+        ========================================================= */
+        const orderForm = document.getElementById('waferForm');
+        orderForm.addEventListener('submit', (event) => {
+            // Prevent page reload on form submission
+            event.preventDefault()
+
+            // Begin creating the main order oject with metadata
+            const orderData = {
+                customerId: document.getElementById('customerId').value,
+                priorityId: document.getElementById('priorityId').value,
+                wafers: []
+            }
+
+            // Get the wafer id for each wafer section
+            document.querySelectorAll('.wafer-section').forEach(wafer => {
+                const waferId = wafer.querySelector("input[name='wafer-id']").value;
+                const waferObj = { waferId, chips: [] }
+
+                // Get each chip id inside this wafer
+                wafer.querySelectorAll('.chip-section').forEach(chip => {
+                    const chipId = chip.querySelector("input[name='chip-id']").value;
+                    const chipObj = { chipId, lamellas: [] }
+
+                    // Collect lamella data inside this chip
+                    chip.querySelectorAll('.lamella-section').forEach(lamella => {
+                        const lamellaName = lamella.querySelector("input[name='lamella-name']").value
+
+                        // add lamella data to the chip object
+                        chipObj.lamellas.push({ lamellaName });
+
+                    });
+                    // Add chip to the wafer object
+                    waferObj.chips.push(chipObj)
+                });
+                // add wafer to order
+                orderData.wafers.push(waferObj)
+            });
+            console.log(orderData) // Check the final structure
+        });
     </script>
 
 </body>
