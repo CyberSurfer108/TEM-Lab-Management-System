@@ -31,15 +31,14 @@ def new_contact_account():
 
 # <---------Read Contact List------->
 
-
 @contacts_api.route('/contact_accounts', methods=['GET'])
 def get_contact_accounts():
 
     contacts = (CompanyContacts.query.all())
     return jsonify([contact.to_dict() for contact in contacts])
 
-# <---------Read Job Roles------->
 
+# <---------Read Job Roles------->
 
 @contacts_api.route('/contact_accounts/job_roles', methods=['GET'])
 def get_job_roles():
@@ -50,15 +49,14 @@ def get_job_roles():
 
 # <---------Read Teams------->
 
-
 @contacts_api.route('/contact_accounts/teams', methods=['GET'])
 def get_teams():
 
     teams = (Teams.query.all())
     return jsonify([team.to_dict() for team in teams])
 
-# <---------Read Companies------->
 
+# <---------Read Companies------->
 
 @contacts_api.route('/contact_accounts/companies', methods=['GET'])
 def get_companies():
@@ -66,8 +64,8 @@ def get_companies():
     companies = (CompanyAccounts.query.all())
     return jsonify([company.to_dict() for company in companies])
 
-# <---------Update Contact Account------->
 
+# <---------Update Contact Account------->
 
 @contacts_api.route("/update_contact", methods=['POST'])
 def update_contact():

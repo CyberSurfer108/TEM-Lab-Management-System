@@ -143,6 +143,7 @@
                     <img>
                 </div>
             </section>
+            
             <section id="templates">
                 <template id="active-order">
                     <tr class="order-row">
@@ -228,7 +229,7 @@
             tbody.appendChild(clone)
         };
 
-
+        // Chart One
         const techniqueChart = document.getElementById('technique-chart');
         new Chart(techniqueChart, {
             type: 'bar',
@@ -243,6 +244,7 @@
             options: { responsive: true }
         });
 
+        // Chart Two
         const orderChart = document.getElementById('orders-chart');
         new Chart(orderChart, {
             type: 'line',

@@ -128,3 +128,95 @@ class Teams(db.Model):
             'name': self.name,
 
         }
+
+
+# <----------- Sample Models ------------>
+
+class OrderStatus(db.Model):
+    __tablename__ = 'order_status'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+
+
+class Grids(db.Model):
+    __tablename__ = 'grids'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+
+
+class Coating(db.Model):
+    __tablename__ = 'coating'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+
+
+class Wafers(db.Model):
+    __tablename__ = 'wafers'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    contact_id = db.Column(db.Integer, db.ForeignKey(
+        'contact_accounts.id'), nullable=False)
+
+    contact = db.relationship('ContactAccounts', backref='wafers')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'contact_id': self.contact_id,
+            'contact_fname': self.contact.first_name,
+            'contact_lname': self.contact.last_name
+        }
+
+
+class Chips(db.Model):
+    __tablename__ = 'chips'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    wafer_id = db.Column(db.Integer, db.ForeignKey(
+        'wafers.id'), nullable=False)
+
+    wafer = db.relationship('Wafers', backref='chips')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'wafer_id': self.wafer_id
+        }
+
+
+class Lamellas(db.Model):
+    __tablename__ = 'lamellas'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    chip_id = db.Column(db.Integer, db.ForeignKey('chips.id'), nullable=False)
+    coating_id = db.Column(
+        db.Integer, db.ForeignKey('coating.id'), nullable=True)
+    completion_date = db.Column(db.DateTime, nullable=True)
+    start_date = db.Column(db.DateTime, nullable=True)
+    grid_id = db.Column(db.Integer, db.ForeignKey('grids.id'), nullable=True)
+    status_id = db.Column(db.Integer, db.ForeignKey(
+        'order_status.id'), nullable=False)
+
+    chip = db.relationship('Chips', backref='lamellas')
+    status = db.relationship('OrderStatus', backref='lamellas')
+    grid = db.relationship('Grids', backref='lamellas')
+    coating = db.relationship('Coating', backref='lamellas')
+
+    def to_dict(self):
+
+        return {
+            'id': self.id,
+            'name': self.name,
+            'chip_id': self.chip_id,
+            'wafer_name': self.chip.wafer.name,
+            'coating_id': self.coating_id,
+            'coating_name': self.coating.name if self.coating else None,
+            'completion_date': self.completion_date,
+            'start_date': self.start_date,
+            'grid_id': self.grid_id,
+            'grid_name': self.grid.name if self.grid else None,
+            'status': self.status.name
+
+        }

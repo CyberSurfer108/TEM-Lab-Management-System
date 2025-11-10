@@ -38,8 +38,8 @@
                     <div class="form-section" id="constants">
                         <div class="form-group">
                             <label name="customerId">Customer</label>
-                            <input type="text" name="customerId" id="customerId" placeholder="Enter Customer Name"
-                                required />
+                            <div id="customer"></div>
+                            
                         </div>
                         <div class="form-group">
                             <label name="priorityId">Priority</label>
@@ -381,12 +381,19 @@
 
     </script>
     <script>
+
+        // Load account data on Open
+        loadContacts('customer');
+
+
+
         /* =========================================================
         🧾 FORM SUBMISSION HANDLER
         Collects nested wafer → chip → lamella data
         Builds JSON object for backend API
         ========================================================= */
         const orderForm = document.getElementById('waferForm');
+
         orderForm.addEventListener('submit', (event) => {
             // Prevent page reload on form submission
             event.preventDefault()
@@ -424,6 +431,38 @@
             });
             console.log(orderData) // Check the final structure
         });
+
+
+        // Load List of companies
+        async function loadContacts(element, selectId) {
+            try {
+                // Fetch data and log to confirm data came through
+                const response = await fetch('/contact_accounts');
+                const data = await response.json();
+
+                // Add the select input and options to the add form 
+                const inputDiv = document.getElementById(element);
+                const inputElement = document.createElement('select');
+                inputElement.id = 'contact_id'
+                inputElement.name = 'contact_id'
+
+                data.forEach(contact => {
+                    const option = document.createElement('option');
+                    option.value = contact.id;
+                    option.textContent = `${contact.first_name} ${contact.last_name}`
+                    inputElement.appendChild(option);
+
+
+                })
+                inputElement.value = selectId;
+                inputDiv.appendChild(inputElement);
+            }
+            catch (err) {
+                console.error("Failed to load companies:", err)
+            }
+        }
+
+
     </script>
 
 </body>

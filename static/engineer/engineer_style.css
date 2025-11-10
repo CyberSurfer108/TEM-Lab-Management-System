@@ -1,279 +1,211 @@
-* {
-    background-color: rgb(0, 0, 0.5);
-    color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* =========================
+   THEME TOKENS
+   ========================= */
+:root {
+    /* Dark base */
+    --bg: #0b0b0d;
+    --surface: #111216;
+    --surface-2: #151823;
+    --text: #e8eaf2;
+    --muted: #a7adc0;
+
+    /* Accents by hierarchy */
+    --teal: 190 70% 36%;
+    /* WAFER */
+    --indigo: 250 70% 55%;
+    /* CHIP  */
+    --amber: 38 90% 55%;
+    /* LAMELLA */
+
+    /* Reusable */
+    --radius: 10px;
+    --brd: 1px solid rgba(255, 255, 255, .08);
+    --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+
+/* =========================
+   BASE / LAYOUT
+   ========================= */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
-}
-
-nav #logo {
-    display: flex;
-    align-items: center;
-}
-
-nav #title {
-    font-size: 20px;
-
-}
-
-nav #initials {
-    font-size: 50px;
-    text-align: center;
-    margin-right: 5px;
-
-}
-
-/* Navigation bar styles */
-nav {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Navigation links */
-nav h2 {
-    color: #00FFFF;
-    cursor: pointer;
-    font-size: small;
-    background-color: #333344;
-    padding: 10px;
-    width: 150px;
-    /* Fixed width for uniform size */
-    text-align: center;
-    border-radius: 3px;
-    border: #00FFFF solid 1px;
-    margin: 0;
-    /* Remove auto margin for alignment */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-nav h2:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.5);
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    width: 150px;
-    /* Match the width of nav h2 elements */
-}
-
-/* Dropdown content */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #1E1E2F;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border: 1px solid #00FFFF;
-}
-
-/* Links inside dropdown */
-.dropdown-content a {
-    color: #00FFFF;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    background-color: #333344;
-}
-
-.dropdown-content a:hover {
-    background-color: #1E90FF;
-    color: #00FFCC;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Table styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #1E1E2F;
-    margin-top: 20px;
-    box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.5);
-    font-size: small;
-}
-
-th,
-td {
-    color: #00FFCC;
-    border: 1px solid #00FFFF;
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: #282828;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-td {
-    background-color: #2F2F3F;
-}
-
-tr:hover td {
-    background-color: #1E90FF;
-    color: #00FFCC;
-    box-shadow: 0 4px 8px rgba(0, 255, 255, 0.5);
-}
-
-/* Button styles */
-button {
-    background-color: #282c34;
-    color: #f0f0f0;
-    font-family: 'Helvetica', sans-serif;
-    padding: 12px 20px;
-    border: 2px solid #61dafb;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    background-color: #61dafb;
-    color: #282c34;
-}
-
-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Main body background */
+html,
 body {
+    height: 100%;
+}
 
-    background-color: #333;
-    /* Fallback color */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    color: #f0f0f0;
-    /* Text color for readability */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    /* Text shadow for readability */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.4;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 main {
     display: flex;
-    height: 100vh;
-
+    min-height: 100vh;
 }
 
+/* Sidebar */
 .sidebar {
-    border-right: 2px solid white;
-    background-color: rgb(0, 0, 0.5);
-    width: 250px;
+    border-right: 2px solid rgba(255, 255, 255, .15);
+    background: #0e0f13;
+    width: 260px;
+    padding: 30px 0;
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
-
 }
 
 .sidebar a {
-    padding: 20px;
+    padding: 16px 20px;
 }
 
 .sidebar a:hover {
-    background-color: #1E90FF;
+    background: rgba(255, 255, 255, .06);
 }
 
+/* Top nav (optional logo area) */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(10, 12, 18, .6);
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#initials {
+    font-size: 36px;
+    margin: 0;
+}
+
+#title {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Main content wrapper */
 .main-content {
-    padding: 20px;
+    padding: 24px;
+    flex: 1;
+}
+
+/* Page heading */
+h1,
+h2 {
+    color: #4a7dff;
+    margin: 0 0 16px;
+}
+
+
+
+
+
+/* =========================
+   TABLES
+   ========================= */
+table {
+    min-width: 640px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: var(--brd);
+    border-radius: var(--radius);
+    background-color: hsl(var(--teal)/ 0.3);
+}
+
+.table-headers {
+    min-height: 30px;
+    background-color: hsl(var(--teal)/ 0.2);
+}
+
+
+
+td,
+th {
+    width: 25%;
+    text-align: center;
+}
+
+.order-row {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+}
+
+progress {
+    width: 50%;
+}
+
+.lamella-list {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.lamella-list.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.lamella-row {
+    background-color: hsl(var(--amber)/ 0.1);
+
+
+}
+
+/* =========================
+   SECTION / CARDS
+   ========================= */
+
+#cards {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
 
 }
 
 .card {
+    border: var(--brd);
+    height: 130px;
+    width: 150px;
+    border-radius: var(--radius);
+    text-align: center;
     padding: 10px;
-    margin: 10px;
-}
-
-#training-container {
-    border: 1px solid white;
-    padding-top: 5px;
-    margin-top: 10px;
-}
-
-#top {
-
-    width: 100%;
-    /* Full width of the container */
-    height: 20px;
-    /* Height of the progress bar */
-    background-color: rgb(230, 216, 216);
-    /* Light gray background */
-    border-radius: 10px;
-    /* Rounded corners */
-    overflow: hidden;
+    background: hsl(var(--indigo)/0.3);
 
 }
 
-.progress-bar {
-    height: 100%;
-    /* Full height of the container */
-    background-color: #4caf50;
-    /* Green progress indicator */
-    width: 34%;
-    /* Initial progress */
-    transition: width 0.3s ease;
-    /* Smooth transition effect */
-    text-align: right;
-    color: black;
-}
-
-#mid {
-    margin: 10px;
-    padding: 5px;
-}
-
-#btm {
+#graphs {
     display: flex;
-    justify-content: center;
-
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.btm-item {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    border: 1px solid white;
-
-}
-
-.btm-item:hover {
-    background-color: #1E90FF;
-}
-
-.productivity-container {
-    border: 1px solid white;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.productivity-item {
-    width: 25%;
-    border: 1px solid white;
-    text-align: center;
-    padding: 5px;
+.graph {
+    width: 310px;
+    height: 270px;
+    border: var(--brd);
+    border-radius: var(--radius);
 }
