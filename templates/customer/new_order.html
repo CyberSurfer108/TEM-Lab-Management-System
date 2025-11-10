@@ -39,7 +39,7 @@
                         <div class="form-group">
                             <label name="customerId">Customer</label>
                             <div id="customer"></div>
-                            
+
                         </div>
                         <div class="form-group">
                             <label name="priorityId">Priority</label>
@@ -439,6 +439,7 @@
                 // Fetch data and log to confirm data came through
                 const response = await fetch('/contact_accounts');
                 const data = await response.json();
+               
 
                 // Add the select input and options to the add form 
                 const inputDiv = document.getElementById(element);
@@ -451,8 +452,6 @@
                     option.value = contact.id;
                     option.textContent = `${contact.first_name} ${contact.last_name}`
                     inputElement.appendChild(option);
-
-
                 })
                 inputElement.value = selectId;
                 inputDiv.appendChild(inputElement);
