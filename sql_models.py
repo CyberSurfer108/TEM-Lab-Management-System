@@ -4,8 +4,7 @@ db = SQLAlchemy()
 
 # <----------- Company Accounts Models ------------>
 
-
-class CompanyAccounts(db.model):
+class CompanyAccounts(db.Model):
     # DB Table data will map to
     __tablename__ = 'company_accounts'
     
@@ -38,7 +37,6 @@ class CompanyAccounts(db.model):
     def __repr__(self):
         return f'<CompanyAccount {self.name}>'
 
-
 class AccountStatus(db.Model):
     # DB Table data will map to
     __tablename__ = 'account_status'
@@ -48,7 +46,6 @@ class AccountStatus(db.Model):
     
     # Keys
     status = db.Column(db.String(100), nullable=False)
-
 
 class Addresses(db.Model):
     # DB Table data will map to
@@ -123,7 +120,6 @@ class CompanyContacts(db.Model):
             'team_name':     self.teams.name
         }
 
-
 class Job_Roles(db.Model):
     # DB Table data will map to
     __tablename__ = 'job_roles'
@@ -139,7 +135,6 @@ class Job_Roles(db.Model):
             'id':   self.id,
             'name': self.name,
         }
-
 
 class Teams(db.Model):
     # DB Table data will map to
@@ -158,7 +153,7 @@ class Teams(db.Model):
         }
 
 
-# <----------- Orders Static Models ------------>
+# <----------- Order Models ------------>
 
 class OrderStatus(db.Model):
     # DB Table data will map to
@@ -172,7 +167,6 @@ class OrderStatus(db.Model):
     tat   = db.Column(db.Integer,       nullable=False)
     price = db.Column(db.Float,         nullable=False)
 
-
 class OrderPriority(db.Model):
     # Db Table data will map to
     __tablename__ = 'order_priority'
@@ -182,9 +176,6 @@ class OrderPriority(db.Model):
     
     # Keys
     name = db.Column(db.String(50),  nullable=False)
-
-
-# <----------- Order Models ------------>
 
 class Orders(db.Model):
     # Db Table data will map to
@@ -209,9 +200,7 @@ class Orders(db.Model):
     priority   = db.relationship('OrderPriority',   backref='orders')
     status     = db.relationship('OrderStatus',     backref='orders')
 
-
-
-# <----------- Lamella Static Models ------------>
+# <----------- Lamella Models ------------>
 
 class Grids(db.Model):
     # DB Table
@@ -223,7 +212,6 @@ class Grids(db.Model):
     # Keys
     name  = db.Column(db.String(50), nullable=False)
 
-
 class Coating(db.Model):
     # DB Table
     __tablename__ = 'coating'
@@ -233,9 +221,6 @@ class Coating(db.Model):
     
     # Keys
     name = db.Column(db.String(100), nullable=False)
-
-# <----------- Lamella Models ------------>
-
 
 class Wafers(db.Model):
     # DB Table
@@ -262,7 +247,6 @@ class Wafers(db.Model):
             'contact_lname': self.contact.last_name
         }
 
-
 class Chips(db.Model):
     # DB Table
     __tablename__ = 'chips'
@@ -285,7 +269,6 @@ class Chips(db.Model):
             'name':     self.name,
             'wafer_id': self.wafer_id
         }
-
 
 class Lamellas(db.Model):
 
@@ -328,8 +311,9 @@ class Lamellas(db.Model):
             'status':           self.status.name
 
         }
-# <----------- Order-Lamella Models ------------>
 
+
+# <----------- Order-Lamella Models ------------>
 
 class OrderLamella(db.Model):
 
@@ -347,10 +331,9 @@ class OrderLamella(db.Model):
     orders   = db.relationship('Orders',    backref='order_lamella')
     lamellas = db.relationship('Lamellas',  backref='order_lamella')
 
-
 class OLT(db.Model):
 
-    # Db Table data will map to
+    # Db Table 
     __tablename__ = 'order_lamella_techniques'
 
     # Primary Key
@@ -362,17 +345,16 @@ class OLT(db.Model):
     run_no      = db.Column(db.Integer,     nullable=True)
 
     # Foreign Keys
-    ol_id        = db.Column(db.Integer, db.ForeignKey('orders.id'),           nullable=False)
-    technique_id = db.Column(db.Integer, db.ForeignKey('lamellas.id'),         nullable=False)
+    ol_id        = db.Column(db.Integer, db.ForeignKey('order_lamella.id'),           nullable=False)
+    technique_id = db.Column(db.Integer, db.ForeignKey('techniques.id'),         nullable=False)
     status_id    = db.Column(db.Integer, db.ForeignKey('order_status.id'),     nullable=False)
 
     # Relationships
     ol        = db.relationship('OrderLamella',  backref='order_lamella_techniques')
-    technique = db.relationship('OrderLamella',  backref='order_lamella_techniques')
+    technique = db.relationship('Techniques',  backref='order_lamella_techniques')
     status    = db.relationship('OrderStatus',   backref='order_lamella_techniques')
 
   # <----------- Technique Static Models ------------>
-
 
 class Techniques(db.Model):
 
@@ -384,7 +366,6 @@ class Techniques(db.Model):
 
     # Keys
     name = db.Column(db.String(50), nullable=False)
-
 
 class TechniqueSteps(db.Model):
 
