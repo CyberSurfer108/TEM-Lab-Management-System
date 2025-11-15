@@ -35,8 +35,19 @@ def customer_portal():
 
 @app.route("/engineer_portal")
 def engineer_portal():
-    return render_template("engineer/engineer_operations.html")
+    return render_template("engineer/engineer_dashboard.html")
 
+@app.route("/engineer/dashboard")
+def engineer_dashboard():
+    return render_template("engineer/engineer_dashboard.html")
+
+@app.route("/engineer/training")
+def engineer_training():
+    return render_template("engineer/engineer_training.html")
+
+@app.route("/engineer/resources")
+def engineer_resources():
+    return render_template("engineer/engineer_training.html")
 
 @app.route("/admin/contacts")
 def company_contacts():

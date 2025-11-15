@@ -1,26 +1,33 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanolab Dual Beam</title>
-    <link rel="stylesheet" href="static/engineer/engineer_style.css">
+    <title>New Order Submissions</title>
+
+
+    <link rel="stylesheet" type="text/css" href="/static/customer/css/dashboard_style.css">
 </head>
 
 <body>
     <header>
         <nav>
-            <div id="title">
-                <a href="/" id="logo">
+            <a href="/">
+                <div class="logo" id="logo">
                     <h1 id="initials">FS</h1>
                     <h1 id="title">Material<br>Analysis</h1>
-                </a>
-            </div>
-
+                </div>
+            </a>
         </nav>
     </header>
     <main>
+        <div class="sidebar">
+            <a href="/customer/dashboard" class="current-page">Dashboard</a>
+            <a href="/customer/new_order">Orders</a>
+            <a href="/customer/new_order">Training</a>
+            <a href="/customer/new_order">Support</a>
+
+        </div>
 
         <div class="main-content">
             <section id="cards">
@@ -41,6 +48,15 @@
                     <p class="card-label">Pending Issues</p>
                 </div>
             </section>
+            <section id="graphs">
+                <div class="graph" id="technique-usage">
+                    <canvas class="graph" id="technique-chart" width="310" height="270"></canvas>
+                </div>
+
+                <div class="graph" id="orders-over-time">
+                    <canvas class="graph" id="orders-chart" width="310" height="270"></canvas>
+                </div>
+            </section>
             <section id="active-orders">
                 <h2>Active Orders</h2>
 
@@ -57,14 +73,14 @@
                         <tr class="order-row" id="order-101">
                             <td>101</td>
                             <td>Nanolab</td>
-                            <td>Status</td>
-                            <td>10-2-2025</td>
+                            <td>In-Progress</td>
+                            <td>11-12-2025</td>
                         </tr>
                         <tr class="lamella-container">
                             <td colspan="4">
                                 <div class="lamella-list">
                                     <table>
-                                        <thead>
+                                        <thead class="lamella-header-row">
                                             <th>Wafer</th>
                                             <th>Chip</th>
                                             <th>Lamella</th>
@@ -97,15 +113,15 @@
                         </tr>
                         <tr class="order-row" id="order-102">
                             <td>102</td>
-                            <td>Nanolab</td>
-                            <td>In-Progress</td>
-                            <td>10-2-205</td>
+                            <td>In-Transit</td>
+                            <td>Not Started</td>
+                            <td>11-14-205</td>
                         </tr>
                         <tr class="order-row" id="order-103">
                             <td>103</td>
-                            <td>Nanolab</td>
-                            <td>In-Progress</td>
-                            <td>10-2-205</td>
+                            <td>Ready for Pickup</td>
+                            <td>Not Started</td>
+                            <td>11-17-205</td>
                         </tr>
 
 
@@ -114,20 +130,22 @@
                     </tbody>
                 </table>
             </section>
-            <section id="images">
+            <!--<section id="images">
                 <h2>Order Images</h2>
-                <select id="select-order-button">
+                <select id="select-image">
                     <option>order: 101</option>
                     <option>order: 101</option>
                     <option>order: 101</option>
                     <option>order: 104</option>
                 </select>
-                <div>
-                    <img>
+                <div class="order-images">
+                    <img src="/static/Images/image1.png">
+                    <img src="/static/Images/image2.png">
+                    <img src="/static/Images/image3.png">
                 </div>
-            </section>
-
-            <section id="templates">
+            </section> -->
+            
+         <section id="templates">
                 <template id="active-order">
                     <tr class="order-row">
                         <td></td>
@@ -184,8 +202,14 @@
 
                 </template>
             </section>
+      
         </div>
+
     </main>
+    <footer>
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+    </footer>
+    <script src="/static/customer/js/chart.umd.js"></script>
     <script>
 
         const orderRow = document.getElementById("order-101");
@@ -207,9 +231,65 @@
             tbody.appendChild(clone)
         };
 
+        // Chart One
+        const techniqueChart = document.getElementById('technique-chart');
+        new Chart(techniqueChart, {
+            type: 'bar',
+            data: {
+                labels: ['SEM', 'FIB', 'TEM'],
+                datasets: [{
+                    label: 'Technique Usage',
+                    data: [10, 7, 5],
+                    backgroundColor: ['#5b5fc7', '#9aa0f8', '#c4c6ff']
+                }]
+            },
+            options: { responsive: true }
+        });
 
+        // Chart Two
+        const orderChart = document.getElementById('orders-chart');
+        new Chart(orderChart, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],  // time axis
+                datasets: [{
+                label: 'Spent ($K)',
+                data: [12, 15, 13, 18, 22, 26],  // trend data
+                borderColor: '#5b5fc7',
+                backgroundColor: 'rgba(91, 95, 199, 0.2)', // transparent fill
+                tension: 0.3, // adds a smooth curve
+                fill: true,
+                pointRadius: 4,
+                pointBackgroundColor: '#5b5fc7'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Expense Trend (2025)',
+                    font: { size: 16 }
+                }
+                },
+                scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'Spent (thousands)' }
+                },
+                x: {
+                    title: { display: true, text: 'Month' }
+                }
+                }
+            }
+            });
 
     </script>
+
 </body>
 
 </html>

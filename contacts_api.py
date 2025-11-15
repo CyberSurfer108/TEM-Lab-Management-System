@@ -1,11 +1,15 @@
 from flask import Blueprint, request, jsonify
-from sql_models import db, CompanyContacts, Job_Roles, Teams, CompanyAccounts
+from sql_models import db, CompanyContacts, Job_Roles, Teams, CompanyAccounts, Coating
 
 contacts_api = Blueprint('contacts_api', __name__)
+lamella_api = Blueprint('lamella_api', __name__)
 
-
+''' 
+=========================================================
+    Contact API's 
+========================================================= 
+'''
 # <---------Create Contacts------->
-
 
 @contacts_api.route("/new_contact", methods=["POST"])
 def new_contact_account():
@@ -99,3 +103,17 @@ def delete_contact():
     db.session.delete(contact)
     db.session.commit()
     return jsonify({"message": "Contact deleted successfully."}), 200
+
+
+''' 
+=========================================================
+    Lamella API's
+========================================================= 
+'''
+# <---------Read Coatings------->
+
+@lamella_api.route('/lamellas/coatings', methods=['GET'])
+def get_coatings():
+
+    coatings = (Coating.query.all())
+    return jsonify([coating.to_dict() for coating in coatings])

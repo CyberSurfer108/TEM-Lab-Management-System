@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Dashboard</title>
+
+
+    <link rel="stylesheet" type="text/css" href="/static/engineer/css/engineer_dashboard_style.css">
+    <link rel="stylesheet" type="text/css" href="/static/engineer/css/engineer_style_clean.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">
+                <div class="logo" id="logo">
+                    <h1 id="initials">FS</h1>
+                    <h1 id="title">Material<br>Analysis</h1>
+                </div>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <a href="/engineer/dashboard" class="current-page">Dashboard</a>
+            <a href="/engineer/orders">Orders</a>
+            <a href="/engineer/training">Training</a>
+            <a href="/engineer/resources">Resources</a>
+
+        </div>
+
+        <div class="main-content">
+
+            <section class="section">
+                <div class="card card--pad">
+                    <h1 class="h1">My Queue</h1>
+
+                    <table class="table" id="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Lamella Count</th>
+                                <th>Status</th>
+                                <th class="right">Due Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-tbody">
+                            <!-- Order Row -->
+                            <tr class="order-row" data-order="101">
+                                <td class="mono">101</td>
+                                <td>Yan Xu</td>
+                                <td>3</td>
+                                <td><span class="badge badge--progress">In-Progress</span></td>
+                                <td>11-12-2025</td>
+                            </tr>
+
+                            <!-- Expandable Details Row -->
+                            <tr class="order-details">
+                                <td colspan="5">
+                                    <div class="split">
+                                        <!-- Lamella List -->
+                                        <div class="lamella-list">
+                                            <button class="lamella-item is-active" data-lamella="10J3-A01">
+                                                <span class="id">10J3-A01</span>
+                                                <span class="badge badge--progress">In-Progress</span>
+                                            </button>
+
+                                            <button class="lamella-item" data-lamella="10J3-A02">
+                                                <span class="id">10J3-A02</span>
+                                                <span class="badge badge--done">Complete</span>
+                                            </button>
+
+                                            <button class="lamella-item" data-lamella="10J3-B03">
+                                                <span class="id">10J3-B03</span>
+                                                <span class="badge badge--idle">Not Started</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- Lamella Detail Panel -->
+                                        <div class="detail">
+                                            <div class="detail__header">
+                                                <div class="detail__title">Lamella 10J3-A01</div>
+                                                <div class="detail__meta">X-Cut</div>
+                                            </div>
+
+                                            <div class="steps">
+                                                <div class="step">
+                                                    <div class="name">Coating</div>
+                                                    <div class="badge badge--done">Complete</div>
+                                                    <div class="tool mono">SP01</div>
+                                                    <div><a href="#" class="notes-link">Notes (1)</a></div>
+                                                    <div class="step-details">
+                                                        <form>
+                                                            <div>Completed By</div>
+                                                            <div>Anthony Hennegan</div>
+                                                            <div>Time</div>
+                                                            <div>11-15-2025 0900</div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="step">
+                                                    <div class="name">Cut</div>
+                                                    <div class="badge badge--done">Complete</div>
+                                                    <div class="tool mono">SEM401</div>
+                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                </div>
+
+                                                <div class="step">
+                                                    <div class="name">Thin</div>
+                                                    <div class="badge badge--progress">In-Progress</div>
+                                                    <div class="tool mono">SEM401</div>
+                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                </div>
+
+                                                <div class="step">
+                                                    <div class="name">30kV STEM</div>
+                                                    <div class="badge badge--idle">Not Started</div>
+                                                    <div class="tool mono">STM03</div>
+                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Example second order -->
+                            <tr class="order-row" data-order="102">
+                                <td class="mono">102</td>
+                                <td>Larry Fitzgerald</td>
+                                <td>2</td>
+                                <td><span class="badge badge--idle">Not Started</span></td>
+                                <td>11-15-2025</td>
+                            </tr>
+
+                            <tr class="order-details">
+                                <td colspan="5">
+                                    <div class="split">
+                                        <div class="lamella-list">
+                                            <button class="lamella-item is-active" data-lamella="11A2-A05">
+                                                <span class="id">11A2-A05</span>
+                                                <span class="badge badge--idle">Not Started</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="detail">
+                                            <div class="detail__header">
+                                                <div class="detail__title">Lamella 11A2-A05</div>
+                                                <div class="detail__meta">Y-Cut</div>
+                                            </div>
+                                            <div class="steps">
+                                                <div class="step">
+                                                    <div class="name">Coating</div>
+                                                    <div class="badge badge--idle">Not Started</div>
+                                                    <div class="tool mono"></div>
+                                                    <div><a href="#" class="notes-link">Notes (1)</a></div>
+                                                </div>
+
+                                                <div class="step">
+                                                    <div class="name">Cut</div>
+                                                    <div class="badge badge--idle">Not Started</div>
+                                                    <div class="tool mono"></div>
+                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                </div>
+
+                                                <div class="step">
+                                                    <div class="name">Thin</div>
+                                                    <div class="badge badge--idle">Not Started</div>
+                                                    <div class="tool mono"></div>
+                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                </div>
+
+                                                <div class="step">
+                                                    <div class="name">TEM</div>
+                                                    <div class="badge badge--idle">Not Started</div>
+                                                    <div class="tool mono"></div>
+                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                </div>
+                                                <div class="step">
+                                                    <div class="name">EELS</div>
+                                                    <div class="badge badge--idle">Not Started</div>
+                                                    <div class="tool mono"></div>
+                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+    </footer>
+    <script src="/static/engineer/js/visiblity.js"></script>
+    <script>
+        // Simple toggle for expanding order rows
+        document.getElementById('order-tbody').addEventListener('click', e => {
+            const row = e.target.closest('.order-row');
+            if (!row) return;
+            const details = row.nextElementSibling.querySelector('.split');
+        
+            // collapse any open detail panels
+            details.classList.toggle('open');
+        });
+
+        // Switch active lamella inside details
+        document.addEventListener('click', e => {
+            const item = e.target.closest('.lamella-item');
+            if (!item) return;
+            item.parentElement.querySelectorAll('.is-active').forEach(b => b.classList.remove('is-active'));
+            item.classList.add('is-active');
+            // Placeholder: update right panel dynamically here if needed
+
+        });
+    </script>
+
+</body>
+
+</html>

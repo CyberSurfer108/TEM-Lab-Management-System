@@ -77,7 +77,7 @@ tr:hover td {
 
 #add-form.open {
     max-height: 600px;
-    /* bigger than your form’s height */
+    
     opacity: 1;
 }
 

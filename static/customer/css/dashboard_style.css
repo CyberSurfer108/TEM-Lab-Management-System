@@ -72,7 +72,9 @@ main {
 .sidebar a:hover {
     background: rgba(255, 255, 255, .06);
 }
-
+.current-page{
+    background-color: #3066f0;
+}
 /* Top nav (optional logo area) */
 nav {
     display: flex;
@@ -104,15 +106,23 @@ nav {
     padding: 24px;
     flex: 1;
 }
-
-/* Page heading */
-h1,
-h2 {
-    color: #4a7dff;
-    margin: 0 0 16px;
+.card-number{
+    color: hsl(var(--amber)/ 0.6);
+    margin: 0 0 10px;
 }
 
+/* Page heading */
+h1 {
+    color: rgb(246, 242, 237);
+    margin: 0 0 10px;
+}
 
+img{
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: var(--radius);
+}
 
 
 
@@ -121,6 +131,7 @@ h2 {
    ========================= */
 table {
     min-width: 640px;
+    max-width: 800px;
     border-collapse: separate;
     border-spacing: 0;
     border: var(--brd);
@@ -132,8 +143,6 @@ table {
     min-height: 30px;
     background-color: hsl(var(--teal)/ 0.2);
 }
-
-
 
 td,
 th {
@@ -167,9 +176,12 @@ progress {
     max-height: 500px;
     opacity: 1;
 }
-
+.lamella-header-row{
+    background-color: hsl(var(--amber)/ 0.5);
+    color: rgb(225, 225, 217)
+}
 .lamella-row {
-    background-color: hsl(var(--amber)/ 0.1);
+    background-color: hsl(var(--amber)/ 0.2);
 
 
 }
@@ -178,12 +190,14 @@ progress {
    SECTION / CARDS
    ========================= */
 
+section{
+    margin: 10px;
+    margin-bottom: 30px;
+}
 #cards {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-
-
 }
 
 .card {
@@ -208,4 +222,23 @@ progress {
     height: 270px;
     border: var(--brd);
     border-radius: var(--radius);
+}
+ #images{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.order-images{
+    display: flex;
+    gap: 15px;
+}
+#select-image{
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  background-color: hsl(var(--amber)/ 0.5);
+  cursor: pointer;
 }

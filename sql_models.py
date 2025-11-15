@@ -149,7 +149,7 @@ class Teams(db.Model):
     def to_dict(self):
         return {
             'id':   self.id,
-            'name': self.name,
+            'name': self.name
         }
 
 
@@ -199,6 +199,13 @@ class Orders(db.Model):
     contact    = db.relationship('CompanyContacts', backref='orders')
     priority   = db.relationship('OrderPriority',   backref='orders')
     status     = db.relationship('OrderStatus',     backref='orders')
+    
+    def to_dict(self):
+        return {
+            'id':       self.id,
+            'sub_date': self.submission_date
+        }
+
 
 # <----------- Lamella Models ------------>
 
@@ -221,6 +228,12 @@ class Coating(db.Model):
     
     # Keys
     name = db.Column(db.String(100), nullable=False)
+    
+    def to_dict(self):
+        return {
+            'id':   self.id,
+            'name': self.name
+        }
 
 class Wafers(db.Model):
     # DB Table
@@ -353,6 +366,13 @@ class OLT(db.Model):
     ol        = db.relationship('OrderLamella',  backref='order_lamella_techniques')
     technique = db.relationship('Techniques',  backref='order_lamella_techniques')
     status    = db.relationship('OrderStatus',   backref='order_lamella_techniques')
+    
+    def to_dict(self):
+        return {
+            'id':   self.id,
+            'name': self.name
+        }
+
 
   # <----------- Technique Static Models ------------>
 
