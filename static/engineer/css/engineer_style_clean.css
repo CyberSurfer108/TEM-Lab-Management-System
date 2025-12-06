@@ -180,15 +180,15 @@ body {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    transition: max-height 1s ease, opacity 1s ease, padding 1s ease;
     /* matches order row rail */
 }
 
 .split.open {
-    max-height: 600px;
+    max-height: fit-content;
     opacity: 1;
     padding: var(--space-3);
-  
+
 }
 
 /* ==========================================================================
@@ -232,12 +232,27 @@ body {
 /* ==========================================================================
    6) LAMELLA DETAIL PANEL (RIGHT SIDE)
    ========================================================================== */
-
-.detail {
+.detail-container {
+    padding: var(--space-3);
     background: hsl(var(--surface));
     border: 1px solid hsl(var(--divider));
     border-radius: var(--radius-sm);
-    padding: var(--space-3);
+
+}
+
+.detail {
+    opacity: 0;
+    max-height: 0px;
+    overflow: hidden;
+    transition: opacity 1.2s ease, max-height 1s ease, padding 0.7s ease;
+
+}
+
+.detail.active {
+    opacity: 1;
+    max-height: fit-content;
+
+
 }
 
 .detail__header {
@@ -264,6 +279,15 @@ body {
     gap: var(--space-2);
 }
 
+.step-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    background: color-mix(in oklab, hsl(var(--surface-2)) 80%, transparent);
+    border: 1px solid hsl(var(--divider));
+}
+
 .step {
     display: grid;
     grid-template-columns: minmax(160px, 1fr) 130px 100px 1fr;
@@ -273,7 +297,12 @@ body {
     padding: 8px 10px;
     border-radius: var(--radius-sm);
     background: color-mix(in oklab, hsl(var(--surface-2)) 80%, transparent);
-    border: 1px solid hsl(var(--divider));
+
+}
+
+.step:hover {
+    cursor: pointer;
+
 }
 
 .step .name {
@@ -289,6 +318,90 @@ body {
     text-decoration: underline;
 }
 
+.step-details-container {
+    padding: 0px;
+    width: 100%;
+    max-height: 0px;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    opacity: 0;
+    overflow: hidden;
+    background-color: color-mix(in oklab, hsl(var(--surface-2)) 90%, white 10%);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.step-details-container.open {
+    padding: 5px;
+    padding-top: 0px;
+    max-height: 300px;
+    opacity: 1;
+}
+
+.step-details {
+
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(4px);
+
+}
+
+.step-details:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.step-detail {
+
+    color: white;
+    font-weight: 500;
+}
+
+.coating-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: hsl(var(--surface-2)/0.7);
+    border-radius: 5px;
+
+}
+
+.coating-table thead th {
+    background-color: color-mix(in oklab, hsl(var(--teal)) 50%, black 50%);
+    color: rgb(163, 163, 163);
+}
+
+.coating-table th,
+.coating-table td {
+    padding: 0px 5px;
+}
+
+.coating-table thead th:first-child {
+    border-top-left-radius: 5px;
+}
+
+.coating-table thead th:last-child {
+    border-top-right-radius: 5px;
+}
+
+.coating-table tbody td {
+    font-size: 13px;
+}
+
+.attempt-btn-container{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+.attempt-btn{
+    font-size: 11px;
+}
 /* ==========================================================================
    7) BADGES (status pills) + PROGRESS
    ========================================================================== */
@@ -330,6 +443,11 @@ body {
     height: 100%;
     width: var(--value, 0%);
     background: hsl(var(--teal));
+}
+
+.datetime {
+    font-family: 'Roboto Mono', monospace;
+
 }
 
 /* ==========================================================================

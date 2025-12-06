@@ -1,0 +1,5 @@
+flask
+gunicorn
+pymysql
+sqlalchemy      # if you're using it
+python-dotenv   # optional, but handy locally

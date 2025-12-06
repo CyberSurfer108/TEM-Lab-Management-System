@@ -81,47 +81,333 @@
                                         </div>
 
                                         <!-- Lamella Detail Panel -->
-                                        <div class="detail">
-                                            <div class="detail__header">
-                                                <div class="detail__title">Lamella 10J3-A01</div>
-                                                <div class="detail__meta">X-Cut</div>
-                                            </div>
+                                        <div class="detail-container">
+                                            <div class="detail active" data-lamella="10J3-A01">
+                                                <div class="detail__header">
+                                                    <div class="detail__title">Lamella 10J3-A01</div>
+                                                    <div class="detail__meta">X-Cut</div>
+                                                </div>
+                                                <!-- List of Steps -->
+                                                <div class="steps">
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">Coating</div>
+                                                            <div class="badge badge--done">Complete</div>
+                                                            <div class="tool mono">SP01</div>
+                                                            <div><a href="#" class="notes-link">Attempts (1)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Pass</th>
+                                                                            <th>TimeStamp</th>
+                                                                            <th>Operator</th>
+                                                                            <th>Recipe</th>
 
-                                            <div class="steps">
-                                                <div class="step">
-                                                    <div class="name">Coating</div>
-                                                    <div class="badge badge--done">Complete</div>
-                                                    <div class="tool mono">SP01</div>
-                                                    <div><a href="#" class="notes-link">Notes (1)</a></div>
-                                                    <div class="step-details">
-                                                        <form>
-                                                            <div>Completed By</div>
-                                                            <div>Anthony Hennegan</div>
-                                                            <div>Time</div>
-                                                            <div>11-15-2025 0900</div>
-                                                        </form>
+                                                                            <th>Notes</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>&check;</td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0730</span>
+                                                                            </td>
+                                                                            <td>A.Hennegan</td>
+                                                                            <td>Iridium 5</td>
+
+                                                                            <td>3nm of Ir</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="attempt-btn-container">
+                                                                <button class="attempt-btn">&plus; Attempt</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">Cut</div>
+                                                            <div class="badge badge--done">Complete</div>
+                                                            <div class="tool mono">SM404</div>
+                                                            <div><a href="#" class="notes-link">Attempts (1)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Pass</th>
+                                                                            <th>TimeStamp</th>
+                                                                            <th>Operator</th>
+                                                                            <th>Notes</th>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>&#10003;
+                                                                            </td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0830</span>
+                                                                            <td>A.Hennegan</td>
+                                                                            <td>No issues.</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                            <div class="attempt-btn-container">
+                                                                <button class="attempt-btn">&plus; Attempt</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">Thin</div>
+                                                            <div class="badge badge--progress">In-Progress</div>
+                                                            <div class="tool mono">SM404</div>
+                                                            <div><a href="#" class="notes-link">Attempts (2)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th>Pass</th>
+                                                                            <th>Timestamp</th>
+                                                                            <th>Operator</th>
+                                                                            <th>Notes</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+
+                                                                            <td>&times;
+                                                                            </td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0900</span>
+                                                                            <td>A.Hennegan</td>
+                                                                            <td>Miscleaved. Went too thin.</td>
+                                                                        </tr>
+                                                                        <tr>
+
+                                                                            <td>&check;</td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0930</span>
+                                                                            <td>A.Hennegan</td>
+
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                            <div class="attempt-btn-container">
+                                                                <button class="attempt-btn">&plus; Attempt</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">30kV STEM</div>
+                                                            <div class="badge badge--idle">Not-Started</div>
+                                                            <div class="tool mono"></div>
+                                                            <div><a href="#" class="notes-link">Attempts (0)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Operator</th>
+                                                                            <th>Started</th>
+                                                                            <th>Complete</th>
+                                                                            <th>Notes</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> </td>
+                                                                            <td> </td>
+                                                                            <td> <span class="datetime"></span></td>
+                                                                            <td> </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                            <div class="attempt-btn-container">
+                                                                <button class="attempt-btn">&plus; Attempt</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="step">
-                                                    <div class="name">Cut</div>
-                                                    <div class="badge badge--done">Complete</div>
-                                                    <div class="tool mono">SEM401</div>
-                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                            </div>
+                                            <div class="detail" data-lamella="10J3-A02">
+                                                <div class="detail__header">
+                                                    <div class="detail__title">Lamella 10J3-A01</div>
+                                                    <div class="detail__meta">X-Cut</div>
                                                 </div>
 
-                                                <div class="step">
-                                                    <div class="name">Thin</div>
-                                                    <div class="badge badge--progress">In-Progress</div>
-                                                    <div class="tool mono">SEM401</div>
-                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
-                                                </div>
 
-                                                <div class="step">
-                                                    <div class="name">30kV STEM</div>
-                                                    <div class="badge badge--idle">Not Started</div>
-                                                    <div class="tool mono">STM03</div>
-                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                <div class="steps">
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">Coating</div>
+                                                            <div class="badge badge--done">Complete</div>
+                                                            <div class="tool mono">SP01</div>
+                                                            <div><a href="#" class="notes-link">Attempts (1)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Pass</th>
+                                                                            <th>TimeStamp</th>
+                                                                            <th>Operator</th>
+                                                                            <th>Recipe</th>
+
+                                                                            <th>Notes</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>&check;</td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0730</span>
+                                                                            </td>
+                                                                            <td>A.Hennegan</td>
+                                                                            <td>Iridium 5</td>
+
+                                                                            <td>3nm of Ir</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">Cut</div>
+                                                            <div class="badge badge--done">Complete</div>
+                                                            <div class="tool mono">SM404</div>
+                                                            <div><a href="#" class="notes-link">Attempts (1)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Pass</th>
+                                                                            <th>TimeStamp</th>
+                                                                            <th>Operator</th>
+                                                                            <th>Notes</th>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>&#10003;
+                                                                            </td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0830</span>
+                                                                            <td>A.Hennegan</td>
+                                                                            <td>No issues.</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">Thin</div>
+                                                            <div class="badge badge--progress">In-Progress</div>
+                                                            <div class="tool mono">SM404</div>
+                                                            <div><a href="#" class="notes-link">Attempts (2)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+
+                                                                            <th>Pass</th>
+                                                                            <th>Timestamp</th>
+                                                                            <th>Operator</th>
+                                                                            <th>Notes</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+
+                                                                            <td>&times;
+                                                                            </td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0900</span>
+                                                                            <td>A.Hennegan</td>
+                                                                            <td>Miscleaved. Went too thin.</td>
+                                                                        </tr>
+                                                                        <tr>
+
+                                                                            <td>&check;</td>
+                                                                            <td><span class="datetime">11-15-25
+                                                                                    0930</span>
+                                                                            <td>A.Hennegan</td>
+
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="step-container">
+                                                        <div class="step">
+                                                            <div class="name">30kV STEM</div>
+                                                            <div class="badge badge--idle">Not-Started</div>
+                                                            <div class="tool mono"></div>
+                                                            <div><a href="#" class="notes-link">Attempts (0)</a></div>
+                                                        </div>
+                                                        <div class="step-details-container">
+                                                            <div class="step-details">
+                                                                <table class="coating-table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Operator</th>
+                                                                            <th>Started</th>
+                                                                            <th>Complete</th>
+                                                                            <th>Notes</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td> </td>
+                                                                            <td> </td>
+                                                                            <td> <span class="datetime"></span></td>
+                                                                            <td> </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,50 +428,55 @@
                                 <td colspan="5">
                                     <div class="split">
                                         <div class="lamella-list">
-                                            <button class="lamella-item is-active" data-lamella="11A2-A05">
-                                                <span class="id">11A2-A05</span>
+                                            <button class="lamella-item" data-lamella="80R5-A01">
+                                                <span class="id">80R5-A01</span>
                                                 <span class="badge badge--idle">Not Started</span>
                                             </button>
+                                            <button class="lamella-item" data-lamella="10J3-A02">
+                                                <span class="id">80R5-A02</span>
+                                                <span class="badge badge--done">Complete</span>
+                                            </button>
                                         </div>
-
-                                        <div class="detail">
-                                            <div class="detail__header">
-                                                <div class="detail__title">Lamella 11A2-A05</div>
-                                                <div class="detail__meta">Y-Cut</div>
-                                            </div>
-                                            <div class="steps">
-                                                <div class="step">
-                                                    <div class="name">Coating</div>
-                                                    <div class="badge badge--idle">Not Started</div>
-                                                    <div class="tool mono"></div>
-                                                    <div><a href="#" class="notes-link">Notes (1)</a></div>
+                                        <div class="detail-container">
+                                            <div class="detail" data-lamella="80R5-A01">
+                                                <div class="detail__header">
+                                                    <div class="detail__title">Lamella 80R5-A01</div>
+                                                    <div class="detail__meta">Y-Cut</div>
                                                 </div>
+                                                <div class="steps">
+                                                    <div class="step">
+                                                        <div class="name">Coating</div>
+                                                        <div class="badge badge--idle">Not Started</div>
+                                                        <div class="tool mono"></div>
+                                                        <div><a href="#" class="notes-link">Notes (1)</a></div>
+                                                    </div>
 
-                                                <div class="step">
-                                                    <div class="name">Cut</div>
-                                                    <div class="badge badge--idle">Not Started</div>
-                                                    <div class="tool mono"></div>
-                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
-                                                </div>
+                                                    <div class="step">
+                                                        <div class="name">Cut</div>
+                                                        <div class="badge badge--idle">Not Started</div>
+                                                        <div class="tool mono"></div>
+                                                        <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                    </div>
 
-                                                <div class="step">
-                                                    <div class="name">Thin</div>
-                                                    <div class="badge badge--idle">Not Started</div>
-                                                    <div class="tool mono"></div>
-                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
-                                                </div>
+                                                    <div class="step">
+                                                        <div class="name">Thin</div>
+                                                        <div class="badge badge--idle">Not Started</div>
+                                                        <div class="tool mono"></div>
+                                                        <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                    </div>
 
-                                                <div class="step">
-                                                    <div class="name">TEM</div>
-                                                    <div class="badge badge--idle">Not Started</div>
-                                                    <div class="tool mono"></div>
-                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
-                                                </div>
-                                                <div class="step">
-                                                    <div class="name">EELS</div>
-                                                    <div class="badge badge--idle">Not Started</div>
-                                                    <div class="tool mono"></div>
-                                                    <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                    <div class="step">
+                                                        <div class="name">TEM</div>
+                                                        <div class="badge badge--idle">Not Started</div>
+                                                        <div class="tool mono"></div>
+                                                        <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div class="name">EELS</div>
+                                                        <div class="badge badge--idle">Not Started</div>
+                                                        <div class="tool mono"></div>
+                                                        <div><a href="#" class="notes-link">Notes (0)</a></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,25 +496,58 @@
     </footer>
     <script src="/static/engineer/js/visiblity.js"></script>
     <script>
-        // Simple toggle for expanding order rows
-        document.getElementById('order-tbody').addEventListener('click', e => {
-            const row = e.target.closest('.order-row');
-            if (!row) return;
-            const details = row.nextElementSibling.querySelector('.split');
-        
-            // collapse any open detail panels
-            details.classList.toggle('open');
+        const tbody = document.getElementById('order-tbody');
+
+        tbody.addEventListener('click', e => {
+
+            // 1) Order row click (expand/collapse lamella section)
+            const orderRow = e.target.closest('.order-row');
+            if (orderRow) {
+                const lamellaContainer = orderRow.nextElementSibling?.querySelector('.split');
+                if (!lamellaContainer) return;
+
+                lamellaContainer.classList.toggle('open');
+                return;
+            }
+
+            // 2) Lamella click
+            const lamellaItem = e.target.closest('.lamella-item');
+            if (lamellaItem) {
+                const lamellaContainer = lamellaItem.closest('.split');
+                const itemId = lamellaItem.dataset.lamella;
+                const details = lamellaContainer.querySelectorAll('.detail');
+
+                // highlight selected lamella
+                lamellaItem.parentElement
+                    .querySelectorAll('.is-active')
+                    .forEach(b => b.classList.remove('is-active'));
+
+                lamellaItem.classList.add('is-active');
+
+                // show matching detail panel
+                details.forEach(panel => {
+                    panel.classList.toggle('active', panel.dataset.lamella === itemId);
+                });
+
+                return;
+            }
+
+            // 3) Step click (inside whichever detail is active)
+            const stepRow = e.target.closest('.step');
+            if (stepRow) {
+                const stepDetails = stepRow.nextElementSibling;
+                if (!stepDetails) return;
+
+                stepDetails.classList.toggle('open');
+                return;
+            }
+
         });
 
-        // Switch active lamella inside details
-        document.addEventListener('click', e => {
-            const item = e.target.closest('.lamella-item');
-            if (!item) return;
-            item.parentElement.querySelectorAll('.is-active').forEach(b => b.classList.remove('is-active'));
-            item.classList.add('is-active');
-            // Placeholder: update right panel dynamically here if needed
 
-        });
+
+
+
     </script>
 
 </body>
