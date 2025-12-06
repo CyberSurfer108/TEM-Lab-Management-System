@@ -1,10 +1,14 @@
+import os
 from flask import Flask, render_template
 from company_api import company_api
 from contacts_api import contacts_api
 from sql_models import db
 
 app = Flask(__name__)
- #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://Anthony:@localhost/FIB Lab Management'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
+    "DATABASE_URL",
+    "sqlite:///tem_lms_temp.db"
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
