@@ -4,7 +4,7 @@ from contacts_api import contacts_api
 from sql_models import db
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://Anthony:@localhost/FIB Lab Management'
+ #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://Anthony:@localhost/FIB Lab Management'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -37,23 +37,25 @@ def customer_portal():
 def engineer_portal():
     return render_template("engineer/engineer_dashboard.html")
 
+
 @app.route("/engineer/dashboard")
 def engineer_dashboard():
     return render_template("engineer/engineer_dashboard.html")
+
 
 @app.route("/engineer/training")
 def engineer_training():
     return render_template("engineer/engineer_training.html")
 
+
 @app.route("/engineer/resources")
 def engineer_resources():
     return render_template("engineer/engineer_training.html")
 
+
 @app.route("/admin/contacts")
 def company_contacts():
     return render_template("admin/contacts.html")
-
-
 
 
 if __name__ == '__main__':
