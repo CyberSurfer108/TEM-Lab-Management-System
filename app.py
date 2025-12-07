@@ -16,12 +16,6 @@ db.init_app(app)
 app.register_blueprint(company_api)
 app.register_blueprint(contacts_api)
 
-
-@app.route("/create-tables")
-def create_tables():
-    db.create_all()
-    return "Tables created!"
-
 @app.route("/")
 def login():
     return render_template("login.html")
