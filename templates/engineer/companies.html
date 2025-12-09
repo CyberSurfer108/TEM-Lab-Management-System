@@ -33,8 +33,9 @@
         <div class="main-content">
 
             <section class="section" id="add-form">
+                <h2>Add Account</h2>
                 <div class="card card--pad" id="forms-card">
-                    <h2>Add Company Account</h2>
+                    
                     <form id="add-form">
                         <div class="form-section" id="company-details">
                             
@@ -88,6 +89,7 @@
             </section>
 
             <section class="section">
+                <h2>Company Accounts</h2>
                 <div class="card card--pad" id="company_accounts">
 
                     <table>
@@ -169,50 +171,50 @@
                             <td colspan='6'>
                                 <div id="${editPanel}" class="collapsible">
                                 <form class="edit-form">
-                                    <div class="edit-form-details">
+                                    <div class="form-section">
 
-                                        <div class="field" style="display: none;">
+                                        <div class="form-input" style="display: none;">
                                             <input type="hidden" id="edit-id-${company.id}" name="id" value="${company.id}"><br>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-name-${company.id}">Company Name:</label><br>
-                                            <input type="text" id="edit-name-${company.id}" name="name" value="${company.name}"><br>
+                                            <input type="text" id="edit-name-${company.id}" name="name" value="${company.name}">
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-status-${company.id}">Status:</label><br>
                                             <select id="edit-status-${company.id}" name="status">
                                                 <option value=1 ${company.status_id === 1 ? 'selected' : ''}>Active</option>
                                                 <option value=2 ${company.status_id === 2 ? 'selected' : ''}>Inactive</option>
                                             </select>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-email-${company.id}">Email:</label><br>
-                                            <input type="email" id="edit-email-${company.id}" name="email" value="${company.email}"><br>
+                                            <input type="email" id="edit-email-${company.id}" name="email" value="${company.email}">
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-phone-${company.id}">Phone:</label><br>
-                                            <input type="text" id="edit-phone-${company.id}" name="phone" value="${company.phone}"><br>
+                                            <input type="text" id="edit-phone-${company.id}" name="phone" value="${company.phone}">
                                         </div>
                                     </div>
-                                    <div class="edit-form-address">
-                                        <div class="field">
+                                    <div class="form-section">
+                                        <div class="form-input">
                                             <label for="edit-street-${company.id}">Street:</label><br>
-                                            <input type="text" id="edit-street-${company.id}" name="street" value="${company.addresses[0].street}"><br>
+                                            <input type="text" id="edit-street-${company.id}" name="street" value="${company.addresses[0].street}">
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-city-${company.id}">City:</label><br>
-                                            <input type="text" id="edit-city-${company.id}" name="city" value="${company.addresses[0].city}"><br>
+                                            <input type="text" id="edit-city-${company.id}" name="city" value="${company.addresses[0].city}">
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-state-${company.id}">State:</label><br>
-                                            <input type="text" id="edit-state-${company.id}" name="state" value="${company.addresses[0].state}"><br>
+                                            <input type="text" id="edit-state-${company.id}" name="state" value="${company.addresses[0].state}">
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-zip-${company.id}">Zip Code:</label><br>
-                                            <input type="text" id="edit-zip-${company.id}" name="zip" value="${company.addresses[0].zip}"><br>
+                                            <input type="text" id="edit-zip-${company.id}" name="zip" value="${company.addresses[0].zip}">
                                         </div>
                                     </div>
-                                    <div class="edit-form-actions">
+                                    <div class="form-section">
                                        <input type="submit" id="submit" class="edit-submit-button" value="Save">
                                        <button type="button" class="edit-cancel-button" onclick="toggleElement('${editPanel}')">Cancel</button>
                                     </div>
