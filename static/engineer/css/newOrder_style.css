@@ -1,31 +1,50 @@
-/* =========================
-   THEME TOKENS
-   ========================= */
+/* ==========================================================================
+   0) DESIGN TOKENS (aligned with orders_style)
+   ========================================================================== */
+
 :root {
-    /* Dark base */
-    --bg: #0b0b0d;
-    --surface: #111216;
-    --surface-2: #151823;
-    --text: #e8eaf2;
-    --muted: #a7adc0;
+    /* Brand palette (HSL) */
+    --amber: 38 92% 50%;
+    --teal: 173 80% 40%;
+    --indigo: 243 75% 59%;
 
-    /* Accents by hierarchy */
-    --teal: 190 70% 36%;
-    /* WAFER */
-    --indigo: 250 70% 55%;
-    /* CHIP  */
-    --amber: 38 90% 55%;
-    /* LAMELLA */
+    /* Dark UI neutrals */
+    --bg: 210 20% 8%;
+    --surface: 207 20% 12%;
+    --surface-2: 205 25% 14%;
+    --surface-3: 205 22% 14%;
+    --divider: 195 16% 26%;
+    --text: 190 20% 92%;
+    --muted: 190 10% 75%;
 
-    /* Reusable */
-    --radius: 10px;
-    --brd: 1px solid rgba(255, 255, 255, .08);
-    --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    /* Shape / elevation */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --brd: 1px solid hsl(var(--divider));
+    --shadow: 0 8px 30px rgba(0, 0, 0, .25);
+
+    /* Sizing & rhythm */
+    --space-1: 8px;
+    --space-2: 12px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+
+    /* Typography */
+    --fs-12: 12px;
+    --fs-14: 14px;
+    --fs-15: 15px;
+    --fs-16: 16px;
+    --fs-18: 18px;
+    --fw-600: 600;
+    --fw-700: 700;
+    --fw-800: 800;
 }
 
-/* =========================
-   BASE / LAYOUT
-   ========================= */
+/* ==========================================================================
+   1) BASE / LAYOUT
+   ========================================================================== */
+
 *,
 *::before,
 *::after {
@@ -38,10 +57,11 @@ body {
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
+    background: hsl(var(--bg));
+    color: hsl(var(--text));
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.4;
+    font-size: var(--fs-15);
+    line-height: 1.45;
     margin: 0;
 }
 
@@ -50,19 +70,35 @@ a {
     text-decoration: none;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    
-    min-height: 100vh;
+a:hover {
+    text-decoration: underline;
 }
 
+button {
+    font-family: inherit;
+}
 
-/* Top nav (optional logo area) */
+.muted {
+    color: hsl(var(--muted));
+}
+
+:focus-visible {
+    outline: 2px solid hsl(var(--teal));
+    outline-offset: 2px;
+}
+
+/* Main layout */
+main {
+    display: flex;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+/* Top nav (logo area) */
 nav {
     display: flex;
     align-items: center;
+    gap: 12px;
     padding: 10px 16px;
     border-bottom: 1px solid rgba(255, 255, 255, .12);
     background: rgba(10, 12, 18, .6);
@@ -77,14 +113,16 @@ nav {
 #initials {
     font-size: 36px;
     margin: 0;
+    font-weight: var(--fw-800);
 }
 
 #title {
-    font-size: 18px;
+    font-size: var(--fs-18);
     margin: 0;
+    font-weight: var(--fw-700);
 }
-/* Sidebar */
-/* Left nav rail */
+
+/* Sidebar (left nav rail) */
 .sidebar {
     width: 260px;
     padding: 30px 0;
@@ -97,40 +135,40 @@ nav {
 .sidebar a {
     padding: 16px 20px;
     border-left: 4px solid transparent;
-    /* hover/active rail */
 }
 
 .sidebar a:hover {
     background: rgba(255, 255, 255, .06);
 }
 
-/* Current page: indigo chip + rail */
+/* Current page */
 .current-page {
     background: hsl(var(--indigo) / 0.18);
     border-left-color: hsl(var(--indigo));
 }
+
 /* Main content wrapper */
 .main-content {
-    padding: 24px;
+    padding: var(--space-4);
     flex: 1;
 }
 
-/* Page heading */
+/* Page headings */
 h1,
 h2 {
-    
-    margin: 0 0 16px;
+    margin: 0 0 var(--space-3);
 }
 
-/* =========================
-   FORM / CARDS
-   ========================= */
+/* ==========================================================================
+   2) FORM / CARDS (layout preserved, styling updated)
+   ========================================================================== */
+
 #waferForm {
     border: var(--brd);
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 0 0 1px rgba(0, 255, 255, .1), 0 8px 24px rgba(0, 0, 0, .35);
-    background: #0f1117;
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+    background: hsl(var(--surface));
 }
 
 .form-group {
@@ -139,28 +177,30 @@ h2 {
 
 label {
     display: block;
-    font-weight: 600;
-    font-size: 13px;
+    font-weight: var(--fw-600);
+    font-size: var(--fs-12);
     margin-bottom: 6px;
+    color: hsl(var(--muted));
 }
 
 input,
 select,
 textarea {
     width: 100%;
-    background: #0f1117;
-    color: var(--text);
-    border: 1px solid rgba(255, 255, 255, .12);
-    border-radius: 8px;
+    background: hsl(var(--surface-2));
+    color: hsl(var(--text));
+    border: 1px solid hsl(var(--divider));
+    border-radius: var(--radius-sm);
     padding: 8px 10px;
     outline: none;
+    font-size: var(--fs-14);
 }
 
 input[type="number"] {
     max-width: 140px;
 }
 
-/* Compact controls row for constants */
+/* Compact controls row for constants (unchanged layout) */
 #constants {
     display: grid;
     grid-template-columns: repeat(4, minmax(180px, 1fr));
@@ -168,25 +208,36 @@ input[type="number"] {
     margin-bottom: 12px;
 }
 
-/* Buttons */
+/* ==========================================================================
+   3) BUTTONS (aligned with orders_style)
+   ========================================================================== */
+
 button {
-    background: #2a2f3a;
-    color: var(--text);
-    border: 1px solid rgba(255, 255, 255, .14);
+    background: hsl(var(--indigo));
+    color: #fff;
+    border: 1px solid hsl(var(--indigo));
     border-radius: 8px;
     padding: 6px 10px;
     cursor: pointer;
+    font-size: var(--fs-14);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease,
+        box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 button:hover {
-    filter: brightness(1.12);
+    background: color-mix(in oklab, hsl(var(--indigo)) 80%, #000 20%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+    transform: translateY(-1px);
 }
 
 #submit-button {
     margin-top: 12px;
 }
 
-/* Containers of dynamic items */
+/* ==========================================================================
+   4) HIERARCHY CARD LAYOUT (WAFER / CHIP / LAMELLA) – layout preserved
+   ========================================================================== */
+
 #wafer-container {
     display: flex;
     flex-wrap: wrap;
@@ -206,11 +257,10 @@ button:hover {
 .wafer-section,
 .chip-section,
 .lamella-section {
-    position: relative;
-    /* required for ::before rails */
-    background: var(--surface);
+    position: relative; /* required for ::before rails */
+    background: hsl(var(--surface));
     border: var(--brd);
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     box-shadow: var(--shadow);
     padding: 12px;
 }
@@ -225,18 +275,19 @@ button:hover {
 
 .badge {
     font: 600 12px/1.6 system-ui;
-    color: var(--text);
+    color: hsl(var(--text));
     padding: 2px 8px;
     border-radius: 999px;
     background: rgba(255, 255, 255, .06);
 }
 
 /* =========================
-   HIERARCHY COLORS
+   HIERARCHY COLORS (same logic, using orders tokens)
    ========================= */
+
 /* WAFER */
 .wafer-section {
-    background: linear-gradient(0deg, hsl(var(--teal) / .05), transparent), var(--surface);
+    background: linear-gradient(0deg, hsl(var(--teal) / .08), transparent), hsl(var(--surface));
 }
 
 .wafer-section::before {
@@ -257,7 +308,7 @@ button:hover {
 
 /* CHIP */
 .chip-section {
-    background: linear-gradient(0deg, hsl(var(--indigo) / .06), transparent), var(--surface-2);
+    background: linear-gradient(0deg, hsl(var(--indigo) / .09), transparent), hsl(var(--surface-2));
 }
 
 .chip-section::before {
@@ -278,7 +329,7 @@ button:hover {
 
 /* LAMELLA */
 .lamella-section {
-    background: linear-gradient(0deg, hsl(var(--amber) / .08), transparent), var(--surface-2);
+    background: linear-gradient(0deg, hsl(var(--amber) / .08), transparent), hsl(var(--surface-2));
 }
 
 .lamella-section::before {
@@ -298,16 +349,16 @@ button:hover {
 }
 
 /* Zebra striping for multiples at each level */
-#wafer-container>.wafer-section:nth-of-type(even) {
-    background: linear-gradient(0deg, hsl(var(--teal) / .25), transparent), var(--surface);
+#wafer-container > .wafer-section:nth-of-type(even) {
+    background: linear-gradient(0deg, hsl(var(--teal) / .25), transparent), hsl(var(--surface));
 }
 
-.chip-container>.chip-section:nth-of-type(even) {
-    background: linear-gradient(0deg, hsl(var(--indigo) / .22) 50%, transparent), var(--surface-2);
+.chip-container > .chip-section:nth-of-type(even) {
+    background: linear-gradient(0deg, hsl(var(--indigo) / .22) 50%, transparent), hsl(var(--surface-2));
 }
 
-.lamella-container>.lamella-section:nth-of-type(even) {
-    background: linear-gradient(0deg, hsl(var(--amber) / .25), transparent), var(--surface-2);
+.lamella-container > .lamella-section:nth-of-type(even) {
+    background: linear-gradient(0deg, hsl(var(--amber) / .25), transparent), hsl(var(--surface-2));
 }
 
 /* Level-matched focus rings */
@@ -326,9 +377,10 @@ button:hover {
     box-shadow: 0 0 0 3px hsl(var(--amber) / .25);
 }
 
-/* =========================
-   SMALL UTILITIES
-   ========================= */
+/* ==========================================================================
+   5) SMALL UTILITIES (unchanged layout, updated colors)
+   ========================================================================== */
+
 .label-container {
     display: flex;
     align-items: center;
@@ -339,7 +391,7 @@ button:hover {
     padding: 2px 6px;
     background: transparent;
     border: 0;
-    color: #f66;
+    color: hsl(var(--amber));
     cursor: pointer;
     border-radius: 6px;
     font-size: 14px;
@@ -355,7 +407,7 @@ button:hover {
 
 fieldset {
     padding: 8px;
-    border: 1px solid rgba(255, 255, 255, .22);
+    border: 1px solid hsl(var(--divider));
     border-radius: 8px;
 }
 
@@ -370,11 +422,9 @@ legend {
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     gap: 8px 16px;
     justify-items: start;
-    /* <-- pins each cell to the left */
     align-items: start;
     text-align: left;
 }
-
 
 .checkbox-input label {
     display: flex;
@@ -387,13 +437,14 @@ legend {
     user-select: none;
     white-space: nowrap;
     text-align: left;
+    font-weight: 500;
+    font-size: 12px;
 }
 
 .checkbox-input input[type="checkbox"] {
     margin: 0.5;
     position: relative;
     top: 0.5px;
-    /* tweak between 0–2px depending on browser */
     accent-color: hsl(var(--indigo));
 }
 
@@ -403,16 +454,13 @@ legend {
 
 input[type="checkbox"] {
     accent-color: hsl(var(--indigo));
-    /* matches chip color, for example */
     transform: scale(1.2);
 }
 
-.checkbox-input label {
-    font-weight: 500;
-    font-size: 12px;
-}
+/* ==========================================================================
+   6) TABLES (compiled order table)
+   ========================================================================== */
 
-/* Tables (if you show a compiled order table) */
 #orderTable {
     width: 100%;
     border-collapse: collapse;
@@ -423,20 +471,22 @@ input[type="checkbox"] {
 
 #orderTable th,
 #orderTable td {
-    border: 1px solid rgba(255, 255, 255, .12);
+    border: 1px solid hsl(var(--divider));
     padding: 6px;
     text-align: center;
+    color: hsl(var(--text));
 }
 
 #orderTable th {
-    background: #1a2030;
+    background: hsl(var(--indigo));
     font-weight: 700;
+    color: #fff;
 }
 
 #orderTable tr:nth-child(even) {
-    background: #141927;
+    background: hsl(var(--surface-2));
 }
 
 #orderTable tr:hover {
-    background: #192037;
+    background: color-mix(in oklab, hsl(var(--surface-2)) 80%, #000 20%);
 }

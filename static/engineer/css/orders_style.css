@@ -16,17 +16,17 @@
     --text: 190 20% 92%;
     --muted: 190 10% 75%;
 
+    /* Shape / elevation */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 8px 30px rgba(0, 0, 0, .25);
+
     /* Sizing & rhythm */
     --space-1: 8px;
     --space-2: 12px;
     --space-3: 16px;
     --space-4: 24px;
     --space-5: 32px;
-
-    /* Radius & shadow */
-    --radius: 12px;
-    --radius-sm: 8px;
-    --shadow: 0 8px 30px rgba(0, 0, 0, .25);
 
     /* Typography */
     --fs-12: 12px;
@@ -43,7 +43,9 @@
    1) BASE / RESET
    ========================================================================== */
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -57,6 +59,16 @@ body {
     background: hsl(var(--bg));
     color: hsl(var(--text));
     font: var(--fs-15)/1.45 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Links inherit color; underline on hover for clarity */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* Utility text colors */
@@ -79,9 +91,74 @@ body {
 }
 
 /* ==========================================================================
-   2) LAYOUT WRAPPERS
+   2) LAYOUT – MAIN, SIDEBAR, NAV, CARDS
    ========================================================================== */
 
+main {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Left nav rail */
+.sidebar {
+    width: 260px;
+    padding: 30px 0;
+    background: color-mix(in oklab, hsl(var(--bg)) 90%, #000 10%);
+    border-right: 2px solid rgba(255, 255, 255, .15);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    padding: 16px 20px;
+    border-left: 4px solid transparent;
+    /* hover/active rail */
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, .06);
+}
+
+/* Current page: indigo chip + rail */
+.current-page {
+    background: hsl(var(--indigo) / 0.18);
+    border-left-color: hsl(var(--indigo));
+}
+
+.main-content {
+    flex: 1;
+    padding: var(--space-4);
+}
+
+/* Top nav / logo */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: rgba(10, 12, 18, .6);
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#initials {
+    margin: 0;
+    font-size: 36px;
+    font-weight: var(--fw-800);
+}
+
+#title {
+    margin: 0;
+    font-size: var(--fs-18);
+    font-weight: var(--fw-700);
+}
+
+/* Sections / cards */
 .section {
     margin: var(--space-5) auto;
     max-width: 1200px;
@@ -96,9 +173,10 @@ body {
 }
 
 .card--pad {
-    padding: var(--space-2);
+    padding: var(--space-3);
 }
 
+/* Heading inside cards */
 .h1 {
     font-size: 1.6rem;
     font-weight: var(--fw-800);
@@ -106,12 +184,11 @@ body {
 }
 
 /* ==========================================================================
-   3) TABLES – BASE STYLES (applies to orders + lamella tables)
+   3) TABLES – BASE STYLES (orders + any other tables)
    ========================================================================== */
 
 .table {
     width: 100%;
-    /* fluid */
     table-layout: fixed;
     /* even columns + truncation */
     border-collapse: separate;
@@ -174,25 +251,23 @@ body {
     grid-template-columns: 1fr 1fr;
     /* 50/50 split */
     gap: var(--space-3);
-    padding: 0px var(--space-3);
+    padding: 0 var(--space-3);
     background: color-mix(in oklab, hsl(var(--indigo)) 8%, transparent);
     border-left: 4px solid hsl(var(--indigo));
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 1s ease, opacity 0.5s ease, padding 0.5s ease;
-    /* matches order row rail */
+    transition: max-height 1s ease, opacity 0.5s linear, padding 0.3s ease;
 }
 
 .split.open {
     max-height: fit-content;
     opacity: 1;
     padding: var(--space-3);
-
 }
 
 /* ==========================================================================
-   5) LAMELLA LIST (LEFT SIDE) – MINIMAL (ID + STATUS only)
+   5) LAMELLA LIST (LEFT SIDE)
    ========================================================================== */
 
 .lamella-list {
@@ -211,7 +286,7 @@ body {
     background: color-mix(in oklab, hsl(var(--indigo)) 10%, transparent);
     border: 1px solid hsl(var(--divider));
     cursor: pointer;
-    color: white;
+    color: #fff;
 }
 
 .lamella-item:hover {
@@ -232,27 +307,24 @@ body {
 /* ==========================================================================
    6) LAMELLA DETAIL PANEL (RIGHT SIDE)
    ========================================================================== */
+
 .detail-container {
     padding: var(--space-3);
     background: hsl(var(--surface));
     border: 1px solid hsl(var(--divider));
     border-radius: var(--radius-sm);
-
 }
 
 .detail {
     opacity: 0;
-    max-height: 0px;
+    max-height: 0;
     overflow: hidden;
     transition: opacity 0.5s ease, max-height 0.5s ease, padding 0.5s ease;
-
 }
 
 .detail.active {
     opacity: 1;
     max-height: fit-content;
-
-
 }
 
 .detail__header {
@@ -273,7 +345,7 @@ body {
     font-size: var(--fs-14);
 }
 
-/* Steps list (checklist instead of table for readability) */
+/* Steps list */
 .steps {
     display: grid;
     gap: var(--space-2);
@@ -297,12 +369,10 @@ body {
     padding: 8px 10px;
     border-radius: var(--radius-sm);
     background: color-mix(in oklab, hsl(var(--surface-2)) 80%, transparent);
-
 }
 
 .step:hover {
     cursor: pointer;
-
 }
 
 .step .name {
@@ -318,10 +388,11 @@ body {
     text-decoration: underline;
 }
 
+/* Step details expand/collapse */
 .step-details-container {
-    padding: 0px;
+    padding: 0;
     width: 100%;
-    max-height: 0px;
+    max-height: 0;
     transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
     opacity: 0;
     overflow: hidden;
@@ -331,14 +402,13 @@ body {
 }
 
 .step-details-container.open {
-    padding: 5px;
-    padding-top: 0px;
+    padding: 5px 10px 5px 5px;
+    padding-top: 0;
     max-height: 300px;
     opacity: 1;
 }
 
 .step-details {
-
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 6px;
@@ -347,7 +417,6 @@ body {
     justify-content: space-between;
     align-items: center;
     backdrop-filter: blur(4px);
-
 }
 
 .step-details:hover {
@@ -355,29 +424,23 @@ body {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-.step-detail {
-
-    color: white;
-    font-weight: 500;
-}
-
+/* Coating / attempts tables inside details */
 .coating-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background-color: hsl(var(--surface-2)/0.7);
+    background-color: hsl(var(--surface-2) / 0.7);
     border-radius: 5px;
-
 }
 
 .coating-table thead th {
-    background-color: color-mix(in oklab, hsl(var(--teal)) 50%, black 50%);
+    background-color: color-mix(in oklab, hsl(var(--teal)) 50%, #000 50%);
     color: rgb(163, 163, 163);
 }
 
 .coating-table th,
 .coating-table td {
-    padding: 0px 5px;
+    padding: 0 5px;
 }
 
 .coating-table thead th:first-child {
@@ -392,16 +455,19 @@ body {
     font-size: 13px;
 }
 
-.attempt-btn-container{
+/* Attempt button */
+.attempt-btn-container {
     display: flex;
     width: 100%;
-    justify-content: right;
+    justify-content: flex-end;
     padding-top: 5px;
     padding-right: 10px;
 }
-.attempt-btn{
+
+.attempt-btn {
     font-size: 11px;
 }
+
 /* ==========================================================================
    7) BADGES (status pills) + PROGRESS
    ========================================================================== */
@@ -430,7 +496,6 @@ body {
     color: hsl(var(--amber));
 }
 
-/* Progress bar */
 .progress {
     height: 8px;
     background: hsl(var(--divider));
@@ -445,9 +510,9 @@ body {
     background: hsl(var(--teal));
 }
 
+/* Datetime monospace formatting */
 .datetime {
-    font-family: 'Roboto Mono', monospace;
-
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* ==========================================================================
@@ -455,48 +520,38 @@ body {
    ========================================================================== */
 
 @media (max-width: 1024px) {
-    .split {
-        grid-template-columns: 2fr 3fr;
+    .main-content {
+        padding: var(--space-3);
     }
 
-    /* 40/60 split: give steps more room */
+    .split {
+        grid-template-columns: 2fr 3fr;
+        /* 40/60 split */
+    }
+
     .step {
         grid-template-columns: minmax(140px, 1fr) 120px 90px 1fr;
     }
 }
 
 @media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 16px 0;
+        border-right: none;
+        border-bottom: 2px solid rgba(255, 255, 255, .15);
+    }
+
     .split {
         grid-template-columns: 1fr;
     }
 
-    /* stack: list then detail */
     .step {
         grid-template-columns: 1fr 120px;
         row-gap: var(--space-1);
     }
-
-    .step .tool,
-    .step .notes {
-        justify-self: start;
-    }
-}
-
-/* ==========================================================================
-   9) LIGHT UTILS (optional helpers)
-   ========================================================================== */
-
-.hr {
-    height: 1px;
-    background: hsl(var(--divider));
-    border: 0;
-    margin: var(--space-3) 0;
-}
-
-.spacer {
-    height: var(--space-4);
-}
-
-.hide {
-    display: none !important;
 }

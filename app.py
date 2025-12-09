@@ -21,14 +21,17 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/admin/companies")
-def admin_companies():
-    return render_template("admin/companies.html")
+@app.route("/companies")
+def companies():
+    return render_template("engineer/companies.html")
 
+@app.route("/contacts")
+def company_contacts():
+    return render_template("engineer/contacts.html")
 
-@app.route("/customer/new_order")
-def customer_new_order():
-    return render_template("customer/new_order.html")
+@app.route("/new_order")
+def new_order():
+    return render_template("engineer/new_order.html")
 
 
 @app.route("/customer/dashboard")
@@ -36,29 +39,9 @@ def customer_portal():
     return render_template("customer/dashboard.html")
 
 
-@app.route("/engineer_portal")
-def engineer_portal():
-    return render_template("engineer/engineer_dashboard.html")
-
-
-@app.route("/engineer/dashboard")
-def engineer_dashboard():
-    return render_template("engineer/engineer_dashboard.html")
-
-
-@app.route("/engineer/training")
-def engineer_training():
-    return render_template("engineer/engineer_training.html")
-
-
-@app.route("/engineer/resources")
-def engineer_resources():
-    return render_template("engineer/engineer_training.html")
-
-
-@app.route("/admin/contacts")
-def company_contacts():
-    return render_template("admin/contacts.html")
+@app.route("/orders")
+def orders():
+    return render_template("engineer/orders.html")
 
 
 if __name__ == '__main__':

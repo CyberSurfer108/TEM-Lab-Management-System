@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engineering Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="/static/engineer/css/engineer_dashboard_style1.css">
+    <link rel="stylesheet" type="text/css" href="/static/engineer/css/orders_style.css">
    
 </head>
 
@@ -22,16 +22,16 @@
     </header>
     <main>
         <div class="sidebar">
-            <a href="/engineer/dashboard" class="current-page">Dashboard</a>
-            <a href="/engineer/orders">Orders</a>
-            <a href="/engineer/training">Training</a>
-            <a href="/engineer/resources">Resources</a>
+            <a href="/orders" class="current-page">Order Queue</a>
+            <a href="/new_order">New Orders</a>
+            <a href="/companies">Company List</a>
+            <a href="/contacts">Contact List</a>
 
         </div>
 
         <div class="main-content">
 
-            <section class="section">
+            <section class="section" id="my-queue">
                 <div class="card card--pad">
                     <h1 class="h1">My Queue</h1>
 
@@ -42,7 +42,7 @@
                                 <th>Customer</th>
                                 <th>Lamella Count</th>
                                 <th>Status</th>
-                                <th class="right">Due Date</th>
+                                <th>Due Date</th>
                             </tr>
                         </thead>
                         <tbody id="order-tbody">
@@ -484,7 +484,14 @@
                     </table>
                 </div>
             </section>
-
+            <section class="section" id="templates">
+                <template id="orderRowTemplate">
+                    <tr>
+                        <td class="order-id"></td>
+                        <td class=""></td>
+                    </tr>
+                </template>
+            </section>
         </div>
 
     </main>
@@ -538,7 +545,6 @@
                 stepDetails.classList.toggle('open');
                 return;
             }
-
         });
 
 
