@@ -335,19 +335,16 @@ button,
     display: flex;
     gap: var(--space-4);
     align-items: flex-start;
+    
+    
 }
 
 /* Add/edit form slide-down */
 #add-form {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-#add-form.open {
-    max-height: 600px; /* bigger than form height */
-    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: fit-content;
+    
 }
 
 /* Generic collapsible (for per-row details) */
@@ -360,7 +357,7 @@ button,
 }
 
 .collapsible.open {
-    max-height: 600px;
+    max-height: fit-content;
     opacity: 1;
 }
 

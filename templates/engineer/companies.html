@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Company Account</title>
-    
-     <link rel="stylesheet" type="text/css" href="/static/engineer/css/company_style.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/engineer/css/company_style.css">
 </head>
 
 <body>
@@ -31,46 +31,64 @@
         </div>
 
         <div class="main-content">
-            <section class="section" id="forms">
-                <h1 class="section-title">Company Accounts</h1>
-                <div class="card" id="forms-card">
-                    <form id="add-form">
-                        <h1 class="section-title">New Company Account</h1>
-                        <div class="form-section">
-                            <div class="company-details">
 
-                                <label for="name">Company Name:</label><br>
-                                <input type="text" id="name" name="name"><br>
+            <section class="section" id="add-form">
+                <div class="card card--pad" id="forms-card">
+                    <h2>Add Company Account</h2>
+                    <form id="add-form">
+                        <div class="form-section" id="company-details">
+                            
+                            <div class="form-input">
+                                <label for="name">Name:</label><br>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="form-input">
                                 <label for="email">Email:</label><br>
-                                <input type="email" id="email" name="email"><br>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-input">
                                 <label for="phone">Phone:</label><br>
-                                <input type="text" id="phone" name="phone"><br>
+                                <input type="text" id="phone" name="phone">
+                            </div>
+                            <div class="form-input">
                                 <label for="status">Status:</label><br>
                                 <select id="status" name="status">
                                     <option value=1>Active</option>
                                     <option value=2>Inactive</option>
-                                </select><br>
+                                </select>
                             </div>
-                            <div class="company-address">
 
-                                <label for="street">Street:</label><br>
-                                <input type="text" id="street" name="street"><br>
-                                <label for="city">City:</label><br>
-                                <input type="text" id="city" name="city"><br>
-                                <label for="state">State:</label><br>
-                                <input type="text" id="state" name="state"><br>
-                                <label for="zip">Zip Code:</label><br>
-                                <input type="text" id="zip" name="zip"><br>
-                            </div>
                         </div>
-                        <input type="submit" id="submit">
-                        <button type="button" onclick="toggleElement('add-form')">Cancel</button>
+                        <div class="form-section" id="address">
+
+                            <div class="form-input">
+                                <label for="street">Street:</label><br>
+                                <input type="text" id="street" name="street">
+                            </div>
+                            <div class="form-input">
+                                <label for="city">City:</label><br>
+                                <input type="text" id="city" name="city">
+                            </div>
+                            <div class="form-input">
+                                <label for="state">State:</label><br>
+                                <input type="text" id="state" name="state">
+                            </div>
+                            <div class="form-input">
+                                <label for="zip">Zip Code:</label><br>
+                                <input type="text" id="zip" name="zip">
+                            </div>
+
+                        </div>
+                        <div class="form-section" id="buttons">
+                            <input type="submit" id="submit">
+                            
+                        </div>
                     </form>
                 </div>
-                <div class="crud-buttons" id="crud-buttons">
-                        <button type="button" id="add-button" onclick="toggleElement('add-form')">Add</button>
-                    </div>
-                <div class="card" id="company_accounts">  
+            </section>
+
+            <section class="section">
+                <div class="card card--pad" id="company_accounts">
 
                     <table>
                         <thead>
