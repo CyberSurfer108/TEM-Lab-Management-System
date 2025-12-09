@@ -394,7 +394,6 @@ tr.edit-row > td {
 
 .edit-form .form-input {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
 }
 
