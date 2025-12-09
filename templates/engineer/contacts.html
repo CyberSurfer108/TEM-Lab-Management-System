@@ -25,7 +25,7 @@
         <div class="sidebar">
             <a href="/orders" class="current-page">Order Queue</a>
             <a href="/new_order">New Orders</a>
-            <a href="/companies">Company List</a>
+            <a href="/companies">Company Accounts</a>
             <a href="/contacts">Contact List</a>
 
         </div>
@@ -34,69 +34,67 @@
 
 
             <section class="section" id="forms">
-                <div class="card" id="forms-card">
+                <div class="card card--pad" id="forms-card">
+                    <h1 class="section-title">Add New Contact</h1>
                     <form id="add-form">
-                        <h1 class="section-title">Add New Contact</h1>
-                        <div class="form-container">
-                            <div class="form-container-inputs">
-                                <div>
-                                    <label for="first_name">First Name</label><br>
-                                    <input type="text" id="first_name" name="first_name"><br>
-                                </div>
-                                <div>
-                                    <label for="last_name">Last Name</label><br>
-                                    <input type="text" id="last_name" name="last_name"><br>
-                                </div>
-                                <div>
-                                    <label for="email">Email:</label><br>
-                                    <input type="email" id="email" name="email"><br>
-                                </div>
-                                <div>
-                                    <label for="phone">Phone:</label><br>
-                                    <input type="text" id="phone" name="phone"><br>
-                                </div>
-                            </div>
-                            <div class="form-container-inputs">
-                                <div>
-                                    <label for="company_id">Company Name</label><br>
-                                    <div id="company-input">
 
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="team_id">Team</label>
-                                    <div id="team-input">
+                        <div class="form-section">
 
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="job_role_id">Job Title</label>
-                                    <div id="job-role-input">
-
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="status">Status:</label><br>
-                                    <select id="status" name="status">
-                                        <option value=1>Active</option>
-                                        <option value=2>Inactive</option>
-                                    </select><br>
-                                </div>
+                            <div class="form-input">
+                                <label for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name">
                             </div>
 
+
+                            <div class="form-input">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" id="last_name" name="last_name">
+                            </div>
+                            <div class="form-input">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-input">
+                                <label for="phone">Phone:</label>
+                                <input type="text" id="phone" name="phone">
+                            </div>
                         </div>
-                        <div class="form-container">
-                            <input type="submit" id="submit">
-                            <button type="button" id="cancel-button">Cancel</button>
+                        <div class="form-section">
+                            <div class="form-input">
+                                <label for="company_id">Company Name</label>
+                                <div id="company-input">
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <label for="team_id">Team</label>
+                                <div id="team-input">
+
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <label for="job_role_id">Job Title</label>
+                                <div id="job-role-input">
+
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <label for="status">Status:</label>
+                                <select id="status" name="status">
+                                    <option value=1>Active</option>
+                                    <option value=2>Inactive</option>
+                                </select><br>
+                            </div>
+                        </div>
+                        <div class="form-section form-actions">
+                            <input type="submit" class="submit-button">
+                           
                         </div>
                     </form>
                 </div>
-                <div class="card" id="accounts">
-                    <div class="crud-buttons" id="crud-buttons">
-                        <button type="button" id="add-button">Add</button>
-                    </div>
+            </section>
+            <section class="section" id="contact-accounts">
+                <div class="card card--pad" id="accounts">
                     <h1 class="section-title">Contact Accounts</h1>
-
                     <table>
                         <thead>
                             <tr>
@@ -109,10 +107,8 @@
                                 <th>Phone</th>
                                 <th>Actions</th>
                             </tr>
-
                         </thead>
                         <tbody id="data_table">
-
                         </tbody>
                     </table>
                 </div>
@@ -283,8 +279,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="edit-form-actions">
-                                       <input type="submit" id="submit" class="edit-submit-button" value="Save">
+                                    <div class="form-actions">
+                                       <input type="submit" id="submit" class="submit-button" value="Save">
                                        <button type="button" class="edit-cancel-button" onclick="toggleElement('${editPanel}')">Cancel</button>
                                     </div>
                                 </form>
