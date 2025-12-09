@@ -383,7 +383,7 @@ button,
     margin-top: 5px;
     color: hsl(var(--text));
     padding: 8px 10px;
-    min-height: 36px;
+    min-height: 30px;
 }
 
 /* Edit row container within table */
@@ -402,13 +402,13 @@ tr.edit-row > td {
     background-color: hsl(var(--surface-2));
 }
 
-.field {
+.edit-form .form-input {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.field label {
+.edit-form .form-input label {
     color: hsl(var(--muted));
     font-size: var(--fs-14);
     margin-bottom: 4px;
