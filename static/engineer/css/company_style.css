@@ -257,7 +257,6 @@ tbody tr:hover td {
 
 button,
 #submit,
-#add-button,
 .edit-button,
 .delete-button,
 .edit-submit-button,
@@ -361,12 +360,6 @@ button,
     opacity: 1;
 }
 
-/* Top-right CRUD buttons container */
-#crud-buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: var(--space-2);
-}
 
 /* ==========================================================================
    6) FORM ELEMENTS (ADD + EDIT)
@@ -379,8 +372,7 @@ button,
     background-color: hsl(var(--surface));
     border: 1px solid hsl(var(--divider));
     border-radius: 5px;
-    margin-bottom: 12px;
-    margin-top: 5px;
+    
     color: hsl(var(--text));
     padding: 8px 10px;
     min-height: 30px;
@@ -430,6 +422,7 @@ tr.edit-row > td {
 .edit-form-actions {
     display: flex;
     justify-content: flex-end;
+    gap: 10px;
     border-top: 1px solid hsl(var(--divider));
     padding: var(--space-2) var(--space-3);
     background-color: color-mix(in oklab, hsl(var(--surface-2)) 90%, #000 10%);
