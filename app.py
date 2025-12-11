@@ -43,6 +43,10 @@ def customer_portal():
 def orders():
     return render_template("engineer/orders.html")
 
+@app.route("/engineer_portal")
+def engineer_portal():
+    return render_template("engineer/orders.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
