@@ -346,6 +346,7 @@ tbody tr:hover td {
 .form-input {
     display: flex;
     flex-direction: column;
+    padding: 3px;
 }
 
 /* Add/edit form slide-down */
