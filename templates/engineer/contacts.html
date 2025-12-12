@@ -23,7 +23,7 @@
     </header>
     <main>
         <div class="sidebar">
-            <a href="/orders" >Order Queue</a>
+            <a href="/orders">Order Queue</a>
             <a href="/new_order">New Orders</a>
             <a href="/companies">Company Accounts</a>
             <a href="/contacts" class="current-page">Contact List</a>
@@ -35,59 +35,55 @@
 
             <section class="section" id="forms">
                 <div class="card card--pad" id="forms-card">
-                    <h1 class="section-title">Add New Contact</h1>
                     <form id="add-form">
-
-                        <div class="form-section">
-
-                            <div class="form-input">
-                                <label for="first_name">First Name</label>
-                                <input type="text" id="first_name" name="first_name">
-                            </div>
-
-
-                            <div class="form-input">
-                                <label for="last_name">Last Name</label>
-                                <input type="text" id="last_name" name="last_name">
-                            </div>
-                            <div class="form-input">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email">
-                            </div>
-                            <div class="form-input">
-                                <label for="phone">Phone:</label>
-                                <input type="text" id="phone" name="phone">
-                            </div>
+                        <div class="form-section" id="form-title">
+                            <h1 class="section-title">Add New Contact</h1>
                         </div>
-                        <div class="form-section">
-                            <div class="form-input">
-                                <label for="company_id">Company Name</label>
-                                <div id="company-input">
+                        <div class="form-section" id="input-rows">                          
+                                <div class="form-input">
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" id="first_name" name="first_name">
                                 </div>
-                            </div>
-                            <div class="form-input">
-                                <label for="team_id">Team</label>
-                                <div id="team-input">
+                                <div class="form-input">
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" id="last_name" name="last_name">
+                                </div>
+                                <div class="form-input">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email">
+                                </div>
+                                <div class="form-input">
+                                    <label for="phone">Phone:</label>
+                                    <input type="text" id="phone" name="phone">
+                                </div>                           
+                                <div class="form-input">
+                                    <label for="company_id">Company Name</label>
+                                    <div id="company-input">
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="team_id">Team</label>
+                                    <div id="team-input">
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="job_role_id">Job Title</label>
+                                    <div id="job-role-input">
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-input">
-                                <label for="job_role_id">Job Title</label>
-                                <div id="job-role-input">
-
+                                <div class="form-input">
+                                    <label for="status">Status:</label>
+                                    <select id="status" name="status">
+                                        <option value=1>Active</option>
+                                        <option value=2>Inactive</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="form-input">
-                                <label for="status">Status:</label>
-                                <select id="status" name="status">
-                                    <option value=1>Active</option>
-                                    <option value=2>Inactive</option>
-                                </select><br>
-                            </div>
+                           
                         </div>
                         <div class="form-section form-actions">
                             <input type="submit" class="submit-button">
-                           
+
                         </div>
                     </form>
                 </div>
@@ -120,10 +116,6 @@
         <p>&copy; 2023 Company Name. All rights reserved.</p>
     </footer>
     <script>
-
-        // Button handlers       
-       
-
         // Load account data on Open
         loadData();
         loadTeams('team-input');
@@ -231,54 +223,54 @@
                             <td colspan='8'>
                                 <div id="${editPanel}" class="collapsible">
                                 <form class="edit-form">
-                                    <div class="edit-form-details">
+                                    <div class="form-section">
 
-                                        <div class="field" style="display: none;">
+                                        <div class="form-input" style="display: none;">
                                             <input type="hidden" id="edit-id-${item.id}" name="id" value="${item.id} "><br>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-fname-${item.id}">First Name:</label><br>
                                             <input type="text" id="edit-fname-${item.id}" name="first_name" value="${item.first_name}"><br>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-lname-${item.id}">Last Name:</label><br>
                                             <input type="text" id="edit-lname-${item.id}" name="last_name" value="${item.last_name}"><br>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-status-${item.id}">Status:</label><br>
                                             <select id="edit-status-${item.id}" name="status">
                                                 <option value=1 ${item.status_id === 1 ? 'selected' : ''}>Active</option>
                                                 <option value=2 ${item.status_id === 2 ? 'selected' : ''}>Inactive</option>
                                             </select>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-email-${item.id}">Email:</label><br>
                                             <input type="email" id="edit-email-${item.id}" name="email" value="${item.email}"><br>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-phone-${item.id}">Phone:</label><br>
                                             <input type="text" id="edit-phone-${item.id}" name="phone" value="${item.phone}"><br>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-company-${item.id}">Company:</label><br>
                                             <div id="edit-company-${item.id}">
 
                                             </div>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input>
                                             <label for="edit-team-${item.id}">Team:</label><br>
                                             <div id="edit-team-${item.id}">
 
                                             </div>
                                         </div>
-                                        <div class="field">
+                                        <div class="form-input">
                                             <label for="edit-title-${item.id}">Title:</label><br>
                                             <div id="edit-title-${item.id}">
 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-actions">
+                                    <div class="form-section form-actions">
                                        <input type="submit" id="submit" class="submit-button" value="Save">
                                        <button type="button" class="edit-cancel-button" onclick="toggleElement('${editPanel}')">Cancel</button>
                                     </div>

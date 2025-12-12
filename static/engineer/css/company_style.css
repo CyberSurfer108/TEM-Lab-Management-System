@@ -258,7 +258,6 @@ tbody tr:hover td {
 
 .edit-button,
 .delete-button,
-.submit-button,
 .edit-cancel-button {
     border-radius: 6px;
     border: 1px solid transparent;
@@ -272,15 +271,11 @@ tbody tr:hover td {
 /* Primary action */
 
 .submit-button {
-    background: rgb(55, 55, 236);
-    color: #fff;
-    border-color: hsl(var(--indigo));
-}
+    width: 100%;
+    background: linear-gradient(0deg, hsl(var(--teal) / .2), teal);
+    font-size: var(--fs-16);
+   
 
-
-#add-button:hover,
-.submit-button:hover {
-    background: color-mix(in oklab, hsl(var(--indigo)) 80%, #000 20%);
 }
 
 /* Secondary / ghost */
@@ -321,6 +316,9 @@ tbody tr:hover td {
 /* ==========================================================================
    5) CUSTOMER FORM LAYOUT + COLLAPSIBLE SECTIONS
    ========================================================================== */
+#forms-card {
+    width: fit-content;
+}
 
 .section-title {
     margin-bottom: var(--space-2);
@@ -328,21 +326,40 @@ tbody tr:hover td {
     font-weight: var(--fw-700);
 }
 
-.form-section {
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-    
-    
-}
-
-/* Add/edit form slide-down */
 #add-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-height: fit-content;
-    
+
+}
+
+#input-rows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;;
+    background-color: rgba(0, 0, 0, 0.253);
+    border-radius: var(--radius);
+    padding: 10px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Add/edit form slide-down */
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+    border-top: 1px solid hsl(var(--divider));
+    border-radius: 6px;
+    padding: var(--space-2) var(--space-3);
+    background-color: color-mix(in oklab, hsl(var(--surface-2)) 90%, #000 10%);
 }
 
 /* Generic collapsible (for per-row details) */
@@ -364,20 +381,19 @@ tbody tr:hover td {
    6) FORM ELEMENTS (ADD + EDIT)
    ========================================================================== */
 
-#add-form input,
-#add-form select,
-.edit-form input,
-.edit-form select {
+input,
+select {
     background-color: hsl(var(--surface));
     border: 1px solid hsl(var(--divider));
-    border-radius: 5px; 
+    border-radius: 5px;
     color: hsl(var(--text));
     padding: 8px 10px;
     min-height: 30px;
+    min-width: 200px;
 }
 
 /* Edit row container within table */
-tr.edit-row > td {
+tr.edit-row>td {
     background-color: hsl(var(--surface-2));
     padding: 0;
     border-top: none;
@@ -416,15 +432,7 @@ tr.edit-row > td {
 }
 
 /* Footer actions in edit form */
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
-    border-top: 1px solid hsl(var(--divider));
-    padding: var(--space-2) var(--space-3);
-    background-color: color-mix(in oklab, hsl(var(--surface-2)) 90%, #000 10%);
-}
+
 
 /* ==========================================================================
    7) RESPONSIVE TWEAKS

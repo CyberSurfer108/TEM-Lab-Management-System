@@ -68,18 +68,6 @@ tr:hover td {
 
 }
 
-#add-form {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-}
-
-#add-form.open {
-    max-height: 600px;
-    
-    opacity: 1;
-}
 
 #add-form input,
 #add-form select {
@@ -105,19 +93,6 @@ tr:hover td {
     background-color: #00BFFF;
 }
 
-#crud-buttons {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#add-button {
-    background-color: #1E90FF;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-}
 
 .actions {
     display: flex;
