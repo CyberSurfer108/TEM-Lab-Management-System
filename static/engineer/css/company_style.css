@@ -338,9 +338,10 @@ tbody tr:hover td {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;;
-    background-color: rgba(0, 0, 0, 0.253);
+    background: color-mix(in oklab, hsl(var(--surface-2)) 85%, black 20%);
     border-radius: var(--radius);
     padding: 10px;
+    
 }
 
 .form-input {
@@ -360,7 +361,7 @@ tbody tr:hover td {
     border-top: 1px solid hsl(var(--divider));
     border-radius: 6px;
     padding: var(--space-2) var(--space-3);
-    background-color: color-mix(in oklab, hsl(var(--surface-2)) 90%, #000 10%);
+    background-color: color-mix(in oklab, hsl(var(--surface-2)) 85%, #000 15%);
 }
 
 /* Generic collapsible (for per-row details) */
@@ -384,7 +385,7 @@ tbody tr:hover td {
 
 input,
 select {
-    background-color: hsl(var(--surface));
+    background: color-mix(in oklab, hsl(var(--surface-2)) 80%, black 18%);
     border: 1px solid hsl(var(--divider));
     border-radius: 5px;
     color: hsl(var(--text));

@@ -18,9 +18,9 @@
                     <h1 id="initials">FS</h1>
                     <h1 id="title">Material<br>Analysis</h1>
                 </div>
-            </a>             
-            
-          
+            </a>
+
+
         </nav>
     </header>
     <main>
@@ -139,10 +139,10 @@
                 <!-- Wafer -->
                 <template id="tpl-wafer">
 
-                    <div class="wafer-section">
+                    <div class="container wafer-section">
                         <div class="label-container">
                             <label>Wafer ID</label>
-                            <button class="delete-btn">❌</button>
+                            <button type="button" class="delete-btn">❌</button>
                         </div>
                         <input type="text" name="wafer-id" placeholder="Enter wafer Id" required />
                         <button type="button" class="chip-btn" onclick="addChip(this)">
@@ -222,10 +222,10 @@
 
                 <!-- Chip -->
                 <template id="tpl-chip">
-                    <div class="chip-section">
+                    <div class="container chip-section">
                         <div class="label-container">
                             <label>Chip ID</label>
-                            <button class="delete-btn">❌</button>
+                            <button type="button" class="delete-btn">❌</button>
                         </div>
                         <input type="text" name="chip-id" placeholder="Enter Chip Id" required />
                         <button type="button" class="lamella-button" onclick="addLamella(this)">
@@ -290,10 +290,10 @@
 
                 <!-- Lamella -->
                 <template id="tpl-lamella">
-                    <div class="lamella-section">
+                    <div class="container lamella-section">
                         <div class="label-container">
                             <label>Lamella ID</label>
-                            <button class="delete-btn">❌</button>
+                            <button type="button" class="delete-btn">❌</button>
                         </div>
                         <input class="lamella-input" type="text" name="lamella-name" placeholder="Enter lamella name"
                             required />
@@ -350,10 +350,7 @@
         <p>&copy; 2023 Company Name. All rights reserved.</p>
     </footer>
     <script>
-        function eventListeners() {
-            const addWaferBtn = document.querySelectorAll('.wafer-btn')
-            document.addEventListener()
-        }
+
 
         function addWafer() {
             const container = document.getElementById('wafer-container')
@@ -379,13 +376,22 @@
             container.appendChild(clone);
         }
 
-
+        document.addEventListener('click', (e) => {
+            const deleteBtn = e.target.closest('.delete-btn');
+            if(!deleteBtn){
+                return
+            }
+            const container = deleteBtn.closest('.container');
+            if(!container){
+                return
+            }
+            container.remove();
+        })
     </script>
     <script>
 
         // Load account data on Open
         loadContacts('customer');
-
 
 
         /* =========================================================
@@ -440,7 +446,7 @@
                 // Fetch data and log to confirm data came through
                 const response = await fetch('/contact_accounts');
                 const data = await response.json();
-               
+
 
                 // Add the select input and options to the add form 
                 const inputDiv = document.getElementById(element);

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engineering Dashboard</title>
     <link rel="stylesheet" type="text/css" href="/static/engineer/css/orders_style.css">
-   
+
 </head>
 
 <body>
@@ -485,10 +485,94 @@
                 </div>
             </section>
             <section class="section" id="templates">
-                <template id="orderRowTemplate">
+                <template id="tpl-orderRow">
+                    <tr class="order-row">
+                        <td class="order-id mono"></td>
+                        <td class="customer"></td>
+                        <td class="total-lamella"></td>
+                        <td class="status"><span class="badge badge--progress"></span></td>
+                        <td class="due-date"></td>
+                    </tr>
+                    <tr class="order-details">
+                        <td colspan="5">
+                            <div class="split open">
+                                <!-- Lamella List -->
+                                <div class="lamella-list">
+                                    <!-- Add lamella buttons here -->
+                                </div>
+                                <!-- Lamella Detail Panel -->
+                                <div class="detail-container">
+                                    <div class="detail active" data-lamella="">
+                                        <div class="detail__header">
+                                            <!-- lamella header details go here-->
+                                        </div>
+                                        <!-- List of Steps -->
+                                        <div class="steps">
+                                            <!--process steps go here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+                <template id="tpl-lamella-btn">
+                    <button class="lamella-item is-active">
+                        <span class="id"></span>
+                        <span class="badge badge--progress"></span>
+                    </button>
+                </template>
+                <template id="tpl-lamella-steps-header">
+                    <div class="detail__title"></div>
+                    <div class="detail__meta"></div>
+                </template>
+                <template id="tpl-lamella-step">
+                    <div class="step-container">
+                        <div class="step">
+                            <div class="name"></div>
+                            <div class="badge badge--done"></div>
+                            <div class="tool mono"></div>
+                            <div><a href="#" class="notes-link"></a></div>
+                        </div>
+                        <div class="step-details-container open">
+                            <div class="step-details">
+                                <table class="coating-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Pass</th>
+                                            <th>TimeStamp</th>
+                                            <th>Operator</th>
+                                            <th>Recipe</th>
+
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td><span class="datetime">
+                                                </span>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="attempt-btn-container">
+                                <button class="attempt-btn">&plus; Attempt</button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template id="tpl-attempt-row">
                     <tr>
-                        <td class="order-id"></td>
-                        <td class=""></td>
+                        <td class="pass-fail"></td>
+                        <td class="time-stamp"><span class="datetime"></span></td>
+                        <td class="operator"></td>
+                        <td class="recipe"></td>
+                        <td class="notes"></td>
                     </tr>
                 </template>
             </section>
@@ -498,10 +582,8 @@
     <footer>
         <p>&copy; 2023 Company Name. All rights reserved.</p>
     </footer>
-    <script src="/static/engineer/js/visiblity.js"></script>
     <script>
         const tbody = document.getElementById('order-tbody');
-
         tbody.addEventListener('click', e => {
 
             // 1) Order row click (expand/collapse lamella section)
@@ -546,11 +628,6 @@
                 return;
             }
         });
-
-
-
-
-
     </script>
 
 </body>
