@@ -407,7 +407,7 @@
 
             // Begin creating the main order oject with metadata
             const orderData = {
-                customerId: document.getElementById('customerId').value,
+                customerId: document.getElementById('contactId').value,
                 priorityId: document.getElementById('priorityId').value,
                 wafers: []
             }
@@ -440,14 +440,14 @@
         });
 
 
-        // Load List of companies
+        // Load List of contacts
         async function loadContacts(element, selectId) {
             try {
                 // Fetch data and log to confirm data came through
                 const response = await fetch('/contact_accounts');
                 const data = await response.json();
-
                 console.log(data);
+
                 // Add the select input and options to the add form 
                 const inputDiv = document.getElementById(element);
                 const inputElement = document.createElement('select');
