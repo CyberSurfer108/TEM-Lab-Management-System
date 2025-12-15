@@ -38,7 +38,7 @@
                 <form id="waferForm">
                     <div class="form-section" id="constants">
                         <div class="form-group">
-                            <label name="customerId">Customer</label>
+                            <label name="contactId">Customer</label>
                             <div id="customer"></div>
 
                         </div>
@@ -451,8 +451,8 @@
                 // Add the select input and options to the add form 
                 const inputDiv = document.getElementById(element);
                 const inputElement = document.createElement('select');
-                inputElement.id = 'contact_id'
-                inputElement.name = 'contact_id'
+                inputElement.id = 'contactId'
+                inputElement.name = 'contactId'
 
                 data.forEach(contact => {
                     const option = document.createElement('option');
