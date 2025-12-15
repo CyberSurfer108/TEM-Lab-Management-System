@@ -447,7 +447,7 @@
                 const response = await fetch('/contact_accounts');
                 const data = await response.json();
 
-
+                console.log(data);
                 // Add the select input and options to the add form 
                 const inputDiv = document.getElementById(element);
                 const inputElement = document.createElement('select');
@@ -459,6 +459,7 @@
                     option.value = contact.id;
                     option.textContent = `${contact.first_name} ${contact.last_name}`
                     inputElement.appendChild(option);
+
                 })
                 inputElement.value = selectId;
                 inputDiv.appendChild(inputElement);
