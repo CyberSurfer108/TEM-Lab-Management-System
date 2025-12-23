@@ -47,6 +47,10 @@ def orders():
 def engineer_portal():
     return render_template("engineer/orders.html")
 
+@app.route("/training")
+def training():
+    return render_template("engineer/engineer_training.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)

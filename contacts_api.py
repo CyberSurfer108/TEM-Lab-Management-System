@@ -3,6 +3,7 @@ from sql_models import db, CompanyContacts, Job_Roles, Teams, CompanyAccounts, C
 
 contacts_api = Blueprint('contacts_api', __name__)
 lamella_api = Blueprint('lamella_api', __name__)
+orders_api = Blueprint('orders_api', __name__)
 
 ''' 
 =========================================================
@@ -117,3 +118,8 @@ def get_coatings():
 
     coatings = (Coating.query.all())
     return jsonify([coating.to_dict() for coating in coatings])
+
+@orders_api.route('/order_submission', methods=['POST'])
+def order_submission():
+    
+    return jsonify({"message": "Order submitted successfully."})

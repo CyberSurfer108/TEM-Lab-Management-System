@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanolab Dual Beam</title>
+    <link rel="stylesheet" href="/static/engineer/css/training_style.css">
+
+    <style>
+        ul {
+            list-style-type: none;
+
+        }
+
+        li {
+            margin: 5px
+        }
+
+        h3 {
+            margin-bottom: 5px
+        }
+
+        .focus-button {
+            font-weight: 500;
+        }
+
+        .certification-intro {
+            padding-top: 10px;
+            
+            margin-right: auto;
+
+        }
+
+        .focus-body {
+            flex-direction: column;
+            gap: 20px;
+        }
+        .training-focus {
+            display: flex;
+            flex-direction: column;
+        }
+        .certification-log {
+            padding-bottom: 20px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <!----------------Heading/Navigation Section--------------------->
+    <header>
+        <nav>
+            <!-----Logo------>
+            <a href="/">
+                <div id="logo">
+                    <h1 id="initials">FS</h1>
+                    <h1 id="title">Material<br>Analysis</h1>
+                </div>
+            </a>
+        </nav>
+    </header>
+    <!-------------------------Main Body------------------------------>
+    <main>
+        <!-----Side-bar Navigation Area------>
+        <div class="sidebar">
+            <a href="/orders">Order Queue</a>
+            <a href="/new_order">New Orders</a>
+            <a href="/training" class="current-page">Training</a>
+            <a href="/companies">Company Accounts</a>
+            <a href="/contacts">Contact List</a>
+
+        </div>
+
+        <!--------Main Content Area------->
+        <div class="main-content">
+
+            <!-----Dashboard Section------>
+            <section class="cert-buttons">
+                <button class="cert-button">SEM</button>
+                <button class="cert-button">FIB</button>
+                <button class="cert-button">Coaters</button>
+                <button class="cert-button">Process</button>
+
+            </section>
+
+            <!-----SEM Training Section------>
+            <section class="training-section" id="SEM-section">
+
+                <!-----Basic Operations Certification----->
+                <div class="training-focus" id="basic-operation">
+                    <h2>SEM TRAINING CERTIFICATIONS</h2>
+                    <button class="focus-button toggle-button">
+                        SEM BASIC OPERATION
+                    </button>
+                    <div class="focus-body toggle">
+                        <!-----Overview------>
+                        <div class="certification-intro">
+                            <h3>Overview</h3>
+                            <p>
+                                This training covers the fundamental operation of the FEI SEM tool, focusing on
+                                essential system components, software navigation, and proper usage. Mastering these
+                                basics ensures accurate imaging, prevents equipment damage, and optimizes performance
+                                for analytical applications.
+
+                            </p>
+                        </div>
+                        <!-----Task List------>
+                        <div class="certification-tasks">
+                            <h3>Training Tasks</h3>
+                            <ul>
+                                <li><input type="checkbox"> Identify key components: Column, Detectors, Vacuum, Stage,
+                                    GIS
+                                </li>
+                                <li><input type="checkbox"> Perform startup and shutdown</li>
+                                <li><input type="checkbox"> Operate vacuum system</li>
+                                <li><input type="checkbox"> Navigate SEM software</li>
+                                <li> <input type="checkbox"> Control Stage for positioning
+                                </li>
+                                <li><input type="checkbox"> Adjust beam setting (voltage, current, distance)
+                                </li>
+                                <li><input type="checkbox"> Follow safety protocols</li>
+                            </ul>
+                        </div>
+                        <!-----Certification Log------>
+                        <div class="certification-log" id="basic-operation-log">
+                            <table id="certification-table">
+                                <h3>Certification Record</h3>
+                                <thead>
+                                    <th>Certification Date</th>
+                                    <th>Trainer</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>03/24/2025</td>
+                                        <td>Anthony Hennegan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-----Sample Handling Certification----->
+                <div class="training-focus" id="sample-handling">
+
+                    <button class="focus-button toggle-button">
+                        SAMPLE HANDLING
+                    </button>
+
+                    <div class="focus-body toggle">
+                        <!-----Overview------>
+                        <div class="certification-intro">
+                            <h3>Overview</h3>
+                            <p>
+                                This section focuses on proper sample handling techniques to ensure safe and effective
+                                analysis in the SEM tool. Handling samples correctly prevents contamination, damage, and
+                                ensures accurate results during imaging.
+
+                            </p>
+                        </div>
+                        <!-----Task List------>
+                        <div class="certification-tasks">
+                            <h3>Training Tasks</h3>
+                            <ul>
+                                <li><input type="checkbox"> Prepare samples for SEM analysis</li>
+                                <li><input type="checkbox"> Handle samples to avoid contamination</li>
+                                <li><input type="checkbox"> Mount samples securely on the stage</li>
+                                <li><input type="checkbox"> Adjust sample orientation for imaging</li>
+                                <li><input type="checkbox"> Monitor sample integrity during analysis</li>
+                                <li><input type="checkbox"> Follow safety and contamination control procedures</li>
+                            </ul>
+                        </div>
+                        <!-----Certification Log------>
+                        <div class="certification-log" id="sample-handling-log">
+                            <table id="certification-table">
+                                <h3>Certification Record</h3>
+                                <thead>
+                                    <th>Certification Date</th>
+                                    <th>Trainer</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>03/24/2025</td>
+                                        <td>Anthony Hennegan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-----Imaging & Detectors Certification----->
+                <div class="training-focus" id="imaging">
+
+                    <button class="focus-button toggle-button">
+                        IMAGING & DETECTORS
+                    </button>
+
+                    <div class="focus-body toggle">
+                        <!-----Overview------>
+                        <div class="certification-intro">
+                            <h3>Overview</h3>
+                            <p>
+                                This section focuses on the basic operation of the FEI SEM tool.
+                                Mastering these fundamentals ensures accurate imaging, prevents damage to sensitive
+                                components,
+                                and optimizes system performance for various analytical applications.
+                                <br>
+
+                            </p>
+                        </div>
+                        <!-----Task List------>
+                        <div class="certification-tasks">
+                            <h3>Training Tasks</h3>
+                            <ul>
+                                <li><input type="checkbox"> Know the key components: Electron Column, Detectors, Vacuum
+                                    System, Stage, GIS
+                                </li>
+                                <li><input type="checkbox"> Understand system startup and shutdown procedures.</li>
+                                <li><input type="checkbox"> Learn vacuum system operation</li>
+                                <li><input type="checkbox"> Familiarize with SEM software interface and navigation.</li>
+                                <li> <input type="checkbox"> Operate stage controls for sample positioning and
+                                    alignment.
+                                </li>
+                                <li><input type="checkbox"> Adjust electron beam settings (acceleration voltage, beam
+                                    current, working distance).
+                                </li>
+                                <li><input type="checkbox"> Follow proper safety protocols when using the system.</li>
+                            </ul>
+                        </div>
+                        <!-----Certification Log------>
+                        <div class="certification-log" id="imaging-log">
+                            <table id="certification-table">
+                                <h3>Certification Record</h3>
+                                <thead>
+                                    <th>Certification Date</th>
+                                    <th>Trainer</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>03/24/2025</td>
+                                        <td>Anthony Hennegan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-----GIS Operation Certification----->
+                <div class="training-focus" id="GIS">
+
+                    <button class="focus-button toggle-button">
+                        GIS OPERATION
+                    </button>
+
+                    <div class="focus-body toggle" id="GIS-body">
+                        <!-----Overview------>
+                        <div class="certification-intro">
+                            <h3>Overview</h3>
+                            <p>
+                                This section focuses on the basic operation of the FEI SEM tool.
+                                Mastering these fundamentals ensures accurate imaging, prevents damage to sensitive
+                                components,
+                                and optimizes system performance for various analytical applications.
+                                <br>
+
+                            </p>
+                        </div>
+                        <!-----Task List------>
+                        <div class="certification-tasks">
+                            <h3>Training Tasks</h3>
+                            <ul>
+                                <li><input type="checkbox"> Know the key components: Electron Column, Detectors, Vacuum
+                                    System, Stage, GIS
+                                </li>
+                                <li><input type="checkbox"> Understand system startup and shutdown procedures.</li>
+                                <li><input type="checkbox"> Learn vacuum system operation</li>
+                                <li><input type="checkbox"> Familiarize with SEM software interface and navigation.</li>
+                                <li> <input type="checkbox"> Operate stage controls for sample positioning and
+                                    alignment.
+                                </li>
+                                <li><input type="checkbox"> Adjust electron beam settings (acceleration voltage, beam
+                                    current, working distance).
+                                </li>
+                                <li><input type="checkbox"> Follow proper safety protocols when using the system.</li>
+                            </ul>
+                        </div>
+                        <!-----Certification Log------>
+                        <div class="certification-log" id="GIS-log">
+                            <table id="certification-table">
+                                <h3>Certification Record</h3>
+                                <thead>
+                                    <th>Certification Date</th>
+                                    <th>Trainer</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>03/24/2025</td>
+                                        <td>Anthony Hennegan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-----Maintenance & Troubleshooting Certification----->
+                <div class="training-focus" id="maintenance">
+
+                    <button class="focus-button toggle-button">
+                        MAINTENANCE & TROUBLESHOOTING
+                    </button>
+
+                    <div class="focus-body toggle">
+
+                    </div>
+                </div>
+            </section>
+            <!-----FIB Training Documents------>
+            <section class="training-section" id="FIB-section">
+
+            </section>
+
+            <!-----Coaters Training Documents------>
+            <section class="training-section" id="coaters-section">
+
+            </section>
+
+            <!-----Software Training Documents------>
+            <section class="training-section" id="software-section">
+
+            </section>
+
+            <!-----Semiconductor Process Training Documents------>
+            <section class="training-section" id="semiconductor-process-section">
+
+            </section>
+
+        </div>
+
+    </main>
+    <script>
+        document.addEventListener('click', e => {
+            const button = e.target.closest('.toggle-button');
+            if (!button) return
+
+            const section = button.nextElementSibling;
+            if (!section) return
+
+            section.classList.toggle('open');
+        })
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
