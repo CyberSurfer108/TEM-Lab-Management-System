@@ -374,7 +374,7 @@ tbody tr:hover td {
 }
 
 .collapsible.open {
-    max-height: fit-content;
+    max-height: 800px;
     opacity: 1;
 }
 

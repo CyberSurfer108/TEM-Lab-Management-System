@@ -257,11 +257,11 @@ nav {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 1s ease, opacity 0.5s linear, padding 0.3s ease;
+    transition: max-height 0.5s ease, opacity 0.5s linear, padding 0.5s ease;
 }
 
 .split.open {
-    max-height: fit-content;
+    max-height: 800px;
     opacity: 1;
     padding: var(--space-3);
 }
@@ -319,12 +319,12 @@ nav {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: opacity 0.5s ease, max-height 0.5s ease, padding 0.5s ease;
+    transition: opacity 1s ease;
 }
 
 .detail.active {
     opacity: 1;
-    max-height: fit-content;
+    max-height: 800px;
 }
 
 .detail__header {

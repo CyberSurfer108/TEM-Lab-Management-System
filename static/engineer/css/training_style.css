@@ -175,11 +175,11 @@ section {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 2s ease, opacity 0.8s ease;
+    transition: max-height .5s ease, opacity 0.8s ease;
 }
 
 .toggle.open {
-    max-height: fit-content;
+    max-height: 800px;
     opacity: 1;
 }
 
