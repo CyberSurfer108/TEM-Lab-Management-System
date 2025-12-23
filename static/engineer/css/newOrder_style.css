@@ -208,9 +208,11 @@ input[type="number"] {
 /* Compact controls row for constants (unchanged layout) */
 #constants {
     display: flex;
-    justify-content: space-around;
     gap: 12px;
-    margin-bottom: 12px;
+   
+}
+#constants >*{
+    width: 100%;
 }
 
 /* ==========================================================================
