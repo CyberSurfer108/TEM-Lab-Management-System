@@ -89,7 +89,8 @@ button {
 
 /* Main layout */
 main {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
     min-height: 100vh;
     margin: 0 auto;
 }
@@ -124,12 +125,14 @@ nav {
 
 /* Sidebar (left nav rail) */
 .sidebar {
-    width: 260px;
-    padding: 30px 0;
+
+    padding-top: 30px;
     background: color-mix(in oklab, hsl(var(--bg)) 90%, #000 10%);
     border-right: 2px solid rgba(255, 255, 255, .15);
     display: flex;
     flex-direction: column;
+
+
 }
 
 .sidebar a {
@@ -150,7 +153,6 @@ nav {
 /* Main content wrapper */
 .main-content {
     padding: var(--space-4);
-    flex: 1;
 }
 
 /* Page headings */
@@ -169,6 +171,8 @@ h2 {
     padding: var(--space-3);
     box-shadow: var(--shadow);
     background: hsl(var(--surface));
+    outline: 1px solid hsl(var(--teal) / .4);
+    width: fit-content;
 }
 
 .form-group {
@@ -186,6 +190,7 @@ label {
 input,
 select,
 textarea {
+    
     width: 100%;
     background: hsl(var(--surface-2));
     color: hsl(var(--text));
@@ -202,8 +207,8 @@ input[type="number"] {
 
 /* Compact controls row for constants (unchanged layout) */
 #constants {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    display: flex;
+    justify-content: space-around;
     gap: 12px;
     margin-bottom: 12px;
 }
@@ -257,7 +262,8 @@ button:hover {
 .wafer-section,
 .chip-section,
 .lamella-section {
-    position: relative; /* required for ::before rails */
+    position: relative;
+    /* required for ::before rails */
     background: hsl(var(--surface));
     border: var(--brd);
     border-radius: var(--radius-sm);
@@ -349,15 +355,15 @@ button:hover {
 }
 
 /* Zebra striping for multiples at each level */
-#wafer-container > .wafer-section:nth-of-type(even) {
+#wafer-container>.wafer-section:nth-of-type(even) {
     background: linear-gradient(0deg, hsl(var(--teal) / .25), transparent), hsl(var(--surface));
 }
 
-.chip-container > .chip-section:nth-of-type(even) {
+.chip-container>.chip-section:nth-of-type(even) {
     background: linear-gradient(0deg, hsl(var(--indigo) / .22) 50%, transparent), hsl(var(--surface-2));
 }
 
-.lamella-container > .lamella-section:nth-of-type(even) {
+.lamella-container>.lamella-section:nth-of-type(even) {
     background: linear-gradient(0deg, hsl(var(--amber) / .25), transparent), hsl(var(--surface-2));
 }
 
