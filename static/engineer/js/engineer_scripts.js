@@ -41,6 +41,7 @@ async function postData(url, data) {
     if (!res.ok) {
         throw new Error(`HTTP error ${res.status}`);
     }
-
-    return res.json();
+    const result = await res.json();
+    console.log(result)
+    return result;
 }
