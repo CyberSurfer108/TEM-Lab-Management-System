@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from sql_models import db, CompanyContacts, Job_Roles, Teams, CompanyAccounts, Coating, Wafers
+from sql_models import db, CompanyContacts, Job_Roles, Teams, CompanyAccounts, Coating, Wafers, Chips, Lamellas
 
 contacts_api = Blueprint('contacts_api', __name__)
 lamella_api = Blueprint('lamella_api', __name__)
@@ -115,18 +115,26 @@ def get_coatings():
 @orders_api.route('/order_submission', methods=['POST'])
 def order_submission():
     data = request.get_json()
-    lamella_data = []
+    
     for wafer in data["wafers"]:
+        wafer_row = Wafers.query.filter_by(name=wafer["waferId"]).first()
+        if wafer_row:
+            wafer_id = wafer_row.id
+        else:
+            wafer_row = Wafers(name=wafer["waferId"], contact_id=data.get("customerId"))          
+            db.session.add(wafer_row)  
+            db.session.flush()
+            wafer_id = wafer_row.id
         for chip in wafer["chips"]:
-            for lamella in chip["lamellas"]:
-                lamella_data.append({
-                    "contact_id": data.get("customerId"),
-                    "priorityId": data.get("priorityId"),
-                    "wafer_id": wafer["waferId"],
-                    "chip_id": chip["chipId"],
-                    "lamella_id": lamella["lamellaName"]
-                })
-        
-    return jsonify({
-        "message": "Order submitted successfully.",
-        "lamellas": lamella_data})
+            chip_row = Chips.query.filter_by(name=chip["chipId"]).first()
+            if chip_row:
+                chip_id = chip_row.id
+            else:
+                chip_row = Chips(name=chip["chipId"], wafer_id=wafer_id)
+                db.session.add(chip_row)
+                db.session.flush()
+                chip_id = chip_row.id
+    
+    db.session.commit()
+            
+    return jsonify({"message": "Order submitted successfully."})
