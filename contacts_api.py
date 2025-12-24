@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from sql_models import db, CompanyContacts, Job_Roles, Teams, CompanyAccounts, Coating
+from sql_models import db, CompanyContacts, Job_Roles, Teams, CompanyAccounts, Coating, Wafers
 
 contacts_api = Blueprint('contacts_api', __name__)
 lamella_api = Blueprint('lamella_api', __name__)
@@ -11,7 +11,6 @@ orders_api = Blueprint('orders_api', __name__)
 ========================================================= 
 '''
 # <---------Create Contacts------->
-
 @contacts_api.route("/new_contact", methods=["POST"])
 def new_contact_account():
     # Extract data from the request
@@ -35,7 +34,6 @@ def new_contact_account():
 
 
 # <---------Read Contact List------->
-
 @contacts_api.route('/contact_accounts', methods=['GET'])
 def get_contact_accounts():
 
@@ -44,7 +42,6 @@ def get_contact_accounts():
 
 
 # <---------Read Job Roles------->
-
 @contacts_api.route('/contact_accounts/job_roles', methods=['GET'])
 def get_job_roles():
 
@@ -53,7 +50,6 @@ def get_job_roles():
 
 
 # <---------Read Teams------->
-
 @contacts_api.route('/contact_accounts/teams', methods=['GET'])
 def get_teams():
 
@@ -62,7 +58,6 @@ def get_teams():
 
 
 # <---------Read Companies------->
-
 @contacts_api.route('/contact_accounts/companies', methods=['GET'])
 def get_companies():
 
@@ -71,7 +66,6 @@ def get_companies():
 
 
 # <---------Update Contact Account------->
-
 @contacts_api.route("/update_contact", methods=['POST'])
 def update_contact():
     data = request.get_json()
@@ -95,7 +89,6 @@ def update_contact():
 
 
 # <---------Delete Contact Account------->
-
 @contacts_api.route("/delete_contact", methods=['POST'])
 def delete_contact():
     data = request.get_json()
@@ -121,5 +114,22 @@ def get_coatings():
 
 @orders_api.route('/order_submission', methods=['POST'])
 def order_submission():
+    data = request.get_json()
+    lamella_data = []
+    for wafer in data["wafers"]:
+        for chip in data["chips"]:
+            for lamella in data["lamellas"]:
+                lamella_data.append({
+                    "contact_id": data.get("customerId"),
+                    "priorityId": data.get("priorityId"),
+                    "wafer_id": wafer["waferId"],
+                    "chip_id": chip["chipId"],
+                    "lamella_id": lamella["lamellaName"]
+                })
+        
     
-    return jsonify({"message": "Order submitted successfully."})
+        
+    
+    return jsonify({
+        "message": "Order submitted successfully.",
+        "lamellas": lamella_data})

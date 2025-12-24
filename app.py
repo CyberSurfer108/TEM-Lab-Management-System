@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template
 from company_api import company_api
-from contacts_api import contacts_api
+from contacts_api import contacts_api, orders_api
 from sql_models import db
 
 app = Flask(__name__)
@@ -15,6 +15,7 @@ db.init_app(app)
 
 app.register_blueprint(company_api)
 app.register_blueprint(contacts_api)
+app.register_blueprint(orders_api)
 
 @app.route("/")
 def login():
