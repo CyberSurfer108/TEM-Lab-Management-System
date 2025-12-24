@@ -117,8 +117,8 @@ def order_submission():
     data = request.get_json()
     lamella_data = []
     for wafer in data["wafers"]:
-        for chip in data["chips"]:
-            for lamella in data["lamellas"]:
+        for chip in wafer["chips"]:
+            for lamella in chip["lamellas"]:
                 lamella_data.append({
                     "contact_id": data.get("customerId"),
                     "priorityId": data.get("priorityId"),
@@ -127,9 +127,6 @@ def order_submission():
                     "lamella_id": lamella["lamellaName"]
                 })
         
-    
-        
-    
     return jsonify({
         "message": "Order submitted successfully.",
         "lamellas": lamella_data})
