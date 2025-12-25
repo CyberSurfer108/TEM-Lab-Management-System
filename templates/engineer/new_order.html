@@ -445,7 +445,11 @@
                 orderData.wafers.push(waferObj)
             });
             console.log(orderData) // Check the final structure
-            postData('/order_submission', orderData);
+
+            // Submit data
+            postData('/order_submission', orderData, 'waferForm');
+
+             
         });
     </script>
 

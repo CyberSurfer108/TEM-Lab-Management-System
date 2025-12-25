@@ -143,7 +143,6 @@ class Teams(db.Model):
     
     # Primary Key
     id = db.Column(db.Integer,  primary_key=True)
-    
     # Keys
     name = db.Column(db.String(100), nullable=False)
 

@@ -150,4 +150,9 @@ def order_submission():
                 
     db.session.commit()
             
-    return jsonify({"message": "Order submitted successfully."})
+    return jsonify({
+        "message": "Order submitted successfully.",
+        "orderId": order_id,
+        "waferId": wafer_id,
+        "chipId": chip_id,
+        "lamellaId": lamella_id})

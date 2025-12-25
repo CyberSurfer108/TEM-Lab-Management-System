@@ -2,7 +2,7 @@
 
 
 
-async function postData(url, data) {
+async function postData(url, data, formId) {
     const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -14,7 +14,12 @@ async function postData(url, data) {
     if (!res.ok) {
         throw new Error(`HTTP error ${res.status}`);
     }
+    
     const result = await res.json();
     console.log(result)
+
+    const form = document.getElementById(formId);
+    if (form) form.reset();
+    
     return result;
 }
