@@ -136,8 +136,9 @@ def order_submission():
                 db.session.add(chip_row)
                 db.session.flush()
                 chip_id = chip_row.id
+                
             for lamella in chip["lamellas"]:
-                lamella_row = Lamellas(name=lamella["lamellaName"], chip_id=chip_id, status=1)
+                lamella_row = Lamellas(name=lamella["lamellaName"], chip_id=chip_id, status_id=1)
                 db.session.add(lamella_row)
                 db.session.flush()
                 lamella_id = lamella_row.id
