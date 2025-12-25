@@ -38,6 +38,7 @@
                         <div class="form-group" id="customerNameSelect">
                             <label name="contactId">Customer</label>
                             <select class="constant" id="contactName">
+                                <option></option>
                             </select>
                         </div>
                         <div class="form-group" id="priorityId">
@@ -414,7 +415,7 @@
 
             // Begin creating the main order oject with metadata
             const orderData = {
-                customerId: document.getElementById('contactId').value,
+                customerId: document.getElementById('contactName').value,
                 priorityId: document.getElementById('priorityId').value,
                 wafers: []
             }

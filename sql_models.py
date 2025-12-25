@@ -164,8 +164,6 @@ class OrderStatus(db.Model):
     
     # Keys
     name  = db.Column(db.String(50),    nullable=False)
-    tat   = db.Column(db.Integer,       nullable=False)
-    price = db.Column(db.Float,         nullable=False)
 
 class OrderPriority(db.Model):
     # Db Table data will map to
@@ -193,7 +191,7 @@ class Orders(db.Model):
     # Foreign Keys
     status_id   = db.Column(db.Integer, db.ForeignKey('order_status.id'),       nullable=False)
     contact_id  = db.Column(db.Integer, db.ForeignKey('company_contacts.id'),   nullable=False)
-    priority_id = db.Column(db.Integer, db.ForeignKey('order_priority.id'),     nullable=False)
+    priority_id = db.Column(db.Integer, db.ForeignKey('order_priority.id'),     nullable=True)
 
     # Links to FK tables
     contact    = db.relationship('CompanyContacts', backref='orders')
@@ -209,31 +207,6 @@ class Orders(db.Model):
 
 # <----------- Lamella Models ------------>
 
-class Grids(db.Model):
-    # DB Table
-    __tablename__ = 'grids'
-    
-    # Primary Keys
-    id    = db.Column(db.Integer, primary_key=True)
-    
-    # Keys
-    name  = db.Column(db.String(50), nullable=False)
-
-class Coating(db.Model):
-    # DB Table
-    __tablename__ = 'coating'
-    
-    # Primary Key
-    id = db.Column(db.Integer, primary_key=True)
-    
-    # Keys
-    name = db.Column(db.String(100), nullable=False)
-    
-    def to_dict(self):
-        return {
-            'id':   self.id,
-            'name': self.name
-        }
 
 class Wafers(db.Model):
     # DB Table
@@ -298,15 +271,11 @@ class Lamellas(db.Model):
 
     # Foreign Keys
     chip_id     = db.Column(db.Integer, db.ForeignKey('chips.id'),           nullable=False)
-    coating_id  = db.Column(db.Integer, db.ForeignKey('coating.id'),         nullable=True)
-    grid_id     = db.Column(db.Integer, db.ForeignKey('grids.id'),           nullable=True)
     status_id   = db.Column(db.Integer, db.ForeignKey('order_status.id'),    nullable=False)
 
     # Links to FK tables
     chip    = db.relationship('Chips',          backref='lamellas')
     status  = db.relationship('OrderStatus',    backref='lamellas')
-    grid    = db.relationship('Grids',          backref='lamellas')
-    coating = db.relationship('Coating',        backref='lamellas')
 
     def to_dict(self):
 
@@ -315,12 +284,8 @@ class Lamellas(db.Model):
             'name':             self.name,
             'chip_id':          self.chip_id,
             'wafer_name':       self.chip.wafer.name,
-            'coating_id':       self.coating_id,
-            'coating_name':     self.coating.name if self.coating else None,
             'completion_date':  self.completion_date,
             'start_date':       self.start_date,
-            'grid_id':          self.grid_id,
-            'grid_name':        self.grid.name if self.grid else None,
             'status':           self.status.name
 
         }
