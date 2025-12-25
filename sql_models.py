@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, timezone
 
 db = SQLAlchemy()
 
@@ -183,7 +184,7 @@ class Orders(db.Model):
     id = db.Column(db.Integer, primary_key=True)
         
     # Keys
-    submission_date = db.Column(db.DateTime, nullable=False)
+    submission_date = db.Column(db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
     start_date      = db.Column(db.DateTime, nullable=True)
     end_date        = db.Column(db.DateTime, nullable=True)
     due_date        = db.Column(db.DateTime, nullable=True)

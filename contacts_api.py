@@ -129,6 +129,7 @@ def order_submission():
             
         for chip in wafer["chips"]:
             chip_row = Chips.query.filter_by(name=chip["chipId"], wafer_id=wafer_id).first()
+            
             if chip_row:
                 chip_id = chip_row.id
             else:
