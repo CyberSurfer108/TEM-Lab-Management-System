@@ -34,8 +34,7 @@
 
             <section class="section" id="my-queue">
                 <div class="card card--pad">
-                    <h1 class="h1">My Queue</h1>
-
+                    <h1 class="h1">Mock Order Table</h1>
                     <table class="table" id="orders-table">
                         <thead>
                             <tr>
@@ -483,8 +482,22 @@
                             </tr>
                         </tbody>
                     </table>
+                    <h1 class="h1">Linked Table</h1>
+                    <table class="table" id="order-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Lamella Count</th>
+                                <th>Status</th>
+                                <th>Due Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-tbody"></tbody>
+                    </table>
                 </div>
             </section>
+          
             <section class="section" id="templates">
                 <template id="tpl-orderRow">
                     <tr class="order-row">
